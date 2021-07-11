@@ -6,17 +6,18 @@
 #    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/11 18:27:01 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/07/11 20:26:24 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Name of the program built
-NAME				:=		yellow_pages
+NAME				:=		phone_book
 
 # List of sources
-SRCS				:=		./main.cpp \
-								./YellowPages.cpp \
-								./Contact.cpp
+SRCS				:=		./main.cpp			\
+								./PhoneBook.cpp	\
+								./Contact.cpp	\
+								./utils.cpp
 OBJS				:=		${SRCS:.cpp=.o}
 
 # Compiler
@@ -48,9 +49,8 @@ init:
 $(NAME):					$(OBJS)
 							@ $(CC) $(FLAGS_COMP) -o $@ $(OBJS)
 
-
 .cpp.o:
-							@ $(CC) $(FLAGS_COMP) -c $< -o $@
+							 $(CC) $(FLAGS_COMP) -c $< -o $@
 
 clean:
 							@ $(RM) $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 16:51:16 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 18:57:17 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/11 20:27:58 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <iostream>
 # include <iomanip>
-# include "const.hpp"
 
 class Contact {
 	private:
@@ -27,8 +26,12 @@ class Contact {
 		std::string	darkest_secret;
 	public:
 		void createContact(int i);
-		void printContact();
+		void printContactRow();
+		void printContactInfo();
 };
 
-#endif
+# include "utils.hpp"
+# include "const.hpp"
 
+
+#endif

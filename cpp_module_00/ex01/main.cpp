@@ -6,14 +6,14 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 09:27:50 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 17:33:44 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/11 19:29:39 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
 int	main() {
-	YellowPages yp;
+	PhoneBook phone_book;
 	std::string command;
 
 	std::cout << "Welcome to the infamous Yellow Pages!" << std::endl;
@@ -21,10 +21,10 @@ int	main() {
 		std::cout << "Command:" << std::endl << "$ ";
 		std::cin >> command;
 		if (command.compare("ADD") == 0) {
-			yp.addContact();
+			phone_book.addContact();
 		}
 		else if (command.compare("SEARCH") == 0) {
-			yp.searchContact();
+			phone_book.searchContact();
 		}
 		else if (command.compare("QUIT") == 0) {
 			break ;

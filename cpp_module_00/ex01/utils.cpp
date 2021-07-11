@@ -1,47 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   YellowPages.cpp                                    :+:      :+:    :+:   */
+/*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/11 12:15:04 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 19:00:08 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/11 19:53:34 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/11 20:10:30 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "YellowPages.hpp"
+#include "utils.hpp"
 
-void YellowPages::addContact() {
-	Contact newContact;
-	int index;
-
-	index = number_of_contacts % MAX_NUMBER_OF_CONTACTS;
-	newContact.createContact(index + 1);
-	contact_list[index] = newContact;
-	number_of_contacts++;
-};
-
-void YellowPages::searchContact() {
-	std::cout << "Searching contacts..." << std::endl;
-	if (number_of_contacts == 0) {
-		std::cout << "No contacts found." << std::endl;
-		return;
-	}
+void printTable(int number_of_contacts, Contact contact_list[]) {
+	printTableRowDelimiter();
 	printTableHeader();
 	for (int i = 0; i < number_of_contacts && i < MAX_NUMBER_OF_CONTACTS; i++) {
-		contact_list[i].printContact();
+		contact_list[i].printContactRow();
 	}
-	for (int i = 0; i < 45; i++) {
-		std::cout << "-";
-	} 
+	printTableRowDelimiter();
 	std::cout << std::endl;
-};
 
-void	printTableHeader() {
-	for (int i = 0; i < 45; i++) {
-		std::cout << "-";
-	} 
+}
+
+void printTableHeader() {
 	std::cout << std::endl;
 	std::cout << "|" << std::right << std::setw(COLUMN_WIDTH) << "Index";
 	std::cout << "|" << std::right << std::setw(COLUMN_WIDTH) << "First name";
@@ -53,4 +35,24 @@ void	printTableHeader() {
 	} 
 	std::cout << std::endl;
 
+}
+
+void printTableCell(std::string content) {
+	std::string adj_content;
+
+	if (content.length() > COLUMN_WIDTH) {
+		adj_content = content.substr(0, COLUMN_WIDTH - 1) + '.';
+	} else {
+		adj_content = content;
+	}
+	std::cout << COLUMN_DELIMITER << std::right
+		<< std::setw(COLUMN_WIDTH) << adj_content;
+}
+
+void printTableRowDelimiter() {
+	int	table_width = NUMBER_COLUMNS * COLUMN_WIDTH + NUMBER_COLUMNS + 1;
+
+	for (int i = 0; i < table_width; i++) {
+		std::cout << ROW_DELIMITER;
+	} 
 }
