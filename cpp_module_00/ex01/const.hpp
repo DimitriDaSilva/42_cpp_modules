@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   const.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/11 16:51:16 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 18:57:17 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/11 18:30:00 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/11 18:30:36 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef CONST_HPP
+# define CONST_HPP
 
-# include <iostream>
-# include <iomanip>
-# include "const.hpp"
-
-class Contact {
-	private:
-		int			index;
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_number;
-		std::string	darkest_secret;
-	public:
-		void createContact(int i);
-		void printContact();
-};
+# define MAX_NUMBER_OF_CONTACTS 2
+# define COLUMN_WIDTH 10
 
 #endif
-

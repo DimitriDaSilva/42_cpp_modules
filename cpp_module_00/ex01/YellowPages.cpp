@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:15:04 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 18:16:43 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/11 19:00:08 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,43 @@
 
 void YellowPages::addContact() {
 	Contact newContact;
+	int index;
 
-	newContact.getContact();
-	if (number_of_contacts == MAX_NUMBER_OF_CONTACTS)
-		number_of_contacts -= MAX_NUMBER_OF_CONTACTS;
-	contact_list[number_of_contacts] = newContact;
+	index = number_of_contacts % MAX_NUMBER_OF_CONTACTS;
+	newContact.createContact(index + 1);
+	contact_list[index] = newContact;
 	number_of_contacts++;
 };
 
 void YellowPages::searchContact() {
-	std::cout << "Searching contact..." << std::endl;
+	std::cout << "Searching contacts..." << std::endl;
+	if (number_of_contacts == 0) {
+		std::cout << "No contacts found." << std::endl;
+		return;
+	}
+	printTableHeader();
+	for (int i = 0; i < number_of_contacts && i < MAX_NUMBER_OF_CONTACTS; i++) {
+		contact_list[i].printContact();
+	}
 	for (int i = 0; i < 45; i++) {
-		std::cout << "_";
+		std::cout << "-";
 	} 
 	std::cout << std::endl;
-	std::cout << "|" << std::right << std::setw(10) << "Index";
-	std::cout << "|" << std::right << std::setw(10) << "First name";
-	std::cout << "|" << std::right << std::setw(10) << "Last name";
-	std::cout << "|" << std::right << std::setw(10) << "Nickname";
+};
+
+void	printTableHeader() {
+	for (int i = 0; i < 45; i++) {
+		std::cout << "-";
+	} 
+	std::cout << std::endl;
+	std::cout << "|" << std::right << std::setw(COLUMN_WIDTH) << "Index";
+	std::cout << "|" << std::right << std::setw(COLUMN_WIDTH) << "First name";
+	std::cout << "|" << std::right << std::setw(COLUMN_WIDTH) << "Last name";
+	std::cout << "|" << std::right << std::setw(COLUMN_WIDTH) << "Nickname";
 	std::cout << "|" << std::endl;
 	for (int i = 0; i < 45; i++) {
-		std::cout << "_";
+		std::cout << "-";
 	} 
 	std::cout << std::endl;
-	for (int i = 0; i < number_of_contacts; i++) {
-		contact_list[i].printContact(i);
-	}
-};
+
+}

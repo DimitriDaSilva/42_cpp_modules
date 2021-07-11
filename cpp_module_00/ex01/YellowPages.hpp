@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:17:35 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 18:10:07 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/11 18:37:52 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <iomanip>
-# include "main.hpp"
+# include "const.hpp"
 # include "Contact.hpp"
 
 class YellowPages {
@@ -26,5 +26,7 @@ class YellowPages {
 		void addContact();
 		void searchContact();
 };
+
+void	printTableHeader();
 
 #endif
