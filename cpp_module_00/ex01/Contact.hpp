@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   YellowPages.hpp                                    :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/11 12:17:35 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 18:10:07 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/11 16:51:16 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/11 18:07:12 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YELLOWPAGES_HPP
-# define YELLOWPAGES_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <iostream>
 # include <iomanip>
-# include "main.hpp"
-# include "Contact.hpp"
 
-class YellowPages {
+class Contact {
 	private:
-		Contact contact_list[MAX_NUMBER_OF_CONTACTS];
-		int number_of_contacts{0};
+		std::string	first_name;
+		std::string	last_name;
+		std::string	nickname;
+		std::string	phone_number;
+		std::string	darkest_secret;
 	public:
-		void addContact();
-		void searchContact();
+		void getContact();
+		void printContact(int index);
 };
 
 #endif
+

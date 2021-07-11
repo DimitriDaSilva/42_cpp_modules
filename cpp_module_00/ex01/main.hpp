@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   YellowPages.hpp                                    :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/11 12:17:35 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 18:10:07 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/11 17:21:39 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/11 17:55:29 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YELLOWPAGES_HPP
-# define YELLOWPAGES_HPP
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
 # include <iostream>
-# include <iomanip>
-# include "main.hpp"
-# include "Contact.hpp"
 
-class YellowPages {
-	private:
-		Contact contact_list[MAX_NUMBER_OF_CONTACTS];
-		int number_of_contacts{0};
-	public:
-		void addContact();
-		void searchContact();
-};
+# define MAX_NUMBER_OF_CONTACTS 2
+
+# include "YellowPages.hpp"
+
 
 #endif

@@ -6,7 +6,7 @@
 #    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/11 12:38:27 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/07/11 17:53:54 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME				:=		yellow_pages
 
 # List of sources
 SRCS				:=		./main.cpp \
-								./YellowPages.cpp
+								./YellowPages.cpp \
+								./Contact.cpp
 OBJS				:=		${SRCS:.cpp=.o}
 
 # Compiler
@@ -45,11 +46,11 @@ init:
 							@ printf "$(_INFO) Initialize $(NAME)\n"
 
 $(NAME):					$(OBJS)
-							@ $(CC) $(FLAGS_COMP) -o $@ $(OBJS)
+							$(CC) $(FLAGS_COMP) -o $@ $(OBJS)
 
 
 .cpp.o:
-							@ $(CC) $(FLAGS_COMP) -c $< -o $@
+							$(CC) $(FLAGS_COMP) -c $< -o $@
 
 clean:
 							@ $(RM) $(OBJS)
