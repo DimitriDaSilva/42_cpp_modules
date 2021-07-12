@@ -1,3 +1,5 @@
 */*/megaphone
-*/*/yellow_pages
+*/*/phone_book
 *.o
+*.log
+*.txt

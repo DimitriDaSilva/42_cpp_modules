@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 09:27:50 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 19:29:39 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/12 11:51:08 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	main() {
 	std::string command;
 
 	std::cout << "Welcome to the infamous Yellow Pages!" << std::endl;
+	//
+	// Infinite loop. Only ended by QUIT command
 	while (1) {
 		std::cout << "Command:" << std::endl << "$ ";
 		std::cin >> command;

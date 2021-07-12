@@ -6,7 +6,7 @@
 #    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/11 09:19:06 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/07/12 11:57:35 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ CC					:=		clang++
 FLAG_WARNING		:=		-Wall -Wextra -Werror
 FLAG_DEBUG			:= 		-g
 FLAGS_COMP			:= 		$(FLAG_WARNING) $(FLAG_DEBUG)
+
+# Flags - memory leak check
+FLAG_MEM_LEAK		:= 		-fsanitize=address
 
 # Others commands
 RM					:=		rm -rf
@@ -57,5 +60,10 @@ fclean:						clean
 							@ $(RM) $(NAME)
 
 re:							fclean all
+
+# Debugging functions
+
+debug:						FLAGS_COMP += $(FLAG_MEM_LEAK)
+debug:						re
 
 .PHONY:						all clean fclean re
