@@ -33,6 +33,7 @@ void Account::displayAccountsInfos( void ) {
 		<< std::endl;
 }
 
+// Constructor with initial_deposit
 Account::Account( int initial_deposit ) {
 	_totalAmount += initial_deposit;
 
@@ -47,11 +48,16 @@ Account::Account( int initial_deposit ) {
 		<< ";created" << std::endl;
 }
 
+// Constructor without initial_deposit
 Account::Account( void ) {
 	_accountIndex = _nbAccounts++;
 	_amount = 0;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
+
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex
+		<< ";created" << std::endl;
 }
 
 Account::~Account( void ) {
@@ -67,6 +73,7 @@ void Account::makeDeposit( int deposit ) {
 
 	_amount += deposit;
 	_nbDeposits++;
+
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex
 		<< ";p_amount:" << _amount - deposit
@@ -90,6 +97,7 @@ bool Account::makeWithdrawal( int withdrawal ) {
 
 	   _amount -= withdrawal;
 	   _nbWithdrawals++;
+
 	   _displayTimestamp();
 	   std::cout << "index:" << _accountIndex
 		   << ";p_amount:" << _amount + withdrawal
