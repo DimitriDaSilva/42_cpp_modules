@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 09:27:50 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/14 10:35:18 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/14 12:48:04 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <string>
 
 int replace(std::string& filename, std::string& s1, std::string& s2);
+std::string replace_line(std::string& line, std::string& s1, std::string& s2);
 
 int	main(int argc, char *argv[]) {
 	std::string	filename;
@@ -22,7 +23,7 @@ int	main(int argc, char *argv[]) {
 	std::string	s2;
 
 	if (argc != 4) {
-		std::cerr << "Error: Invalid arguments." << std::endl;
+		std::cerr << "Error: Invalid number of arguments." << std::endl;
 		return 1;
 	}
 
@@ -55,10 +56,15 @@ int replace(std::string& filename, std::string& s1, std::string& s2) {
 		return EXIT_FAILURE;
 	}
 
+	// Parse file line per line
 	while (std::getline(input_file, line)) {
+		// Find in the line the s1 string
 		found_pos = line.find(s1);
+		// If s1 is found then replace_line
+		// Else write line read to output_file
 		if (found_pos != std::string::npos) {
-			output_file << s2 << std::endl;
+			output_file << replace_line(line, s1, s2) << std::endl;
+			//output_file << s2 << std::endl;
 		} else {
 			output_file << line << std::endl;
 		}
@@ -68,4 +74,16 @@ int replace(std::string& filename, std::string& s1, std::string& s2) {
 	output_file.close();
 
 	return EXIT_SUCCESS;
+}
+
+std::string replace_line(std::string& line, std::string& s1, std::string& s2) {
+	std::string new_line;
+	std::size_t	found_pos;
+
+	found_pos = line.find(s1);
+	new_line = line.substr(0, found_pos);
+	new_line += s2;
+	new_line += line.substr(found_pos + s1.length());
+
+	return new_line;
 }
