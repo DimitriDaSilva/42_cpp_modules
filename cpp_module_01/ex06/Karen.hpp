@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Karen.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/11 09:27:50 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/15 12:54:45 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/11 12:17:35 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/15 14:12:35 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
-#include <iostream>
+#ifndef KAREN_HPP
+# define KAREN_HPP
 
-int	main(void) {
-	Karen a_karen;
+# define NB_LEVELS 4
+# include <iostream>
+# include <string>
 
-	a_karen.complain("DEBUG");
-	a_karen.complain("INFO");
-	a_karen.complain("WARNING");
-	a_karen.complain("ERROR");
+class Karen {
+	public:
+		void	complain(std::string level);
+	private:
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
+};
 
-	return 0;
-}
+#endif

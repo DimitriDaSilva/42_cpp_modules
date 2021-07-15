@@ -6,20 +6,13 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:15:04 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/15 12:54:19 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:11:51 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Karen.hpp"
 
 int get_level_index(char **levels, std::string level);
-
-Karen::Karen(void) {
-	funcs[0] = &Karen::debug;
-	funcs[1] = &Karen::info;
-	funcs[2] = &Karen::warning;
-	funcs[3] = &Karen::error;
-}
 
 void Karen::complain(std::string level) {
 	char *levels[NB_LEVELS] = {
@@ -30,7 +23,28 @@ void Karen::complain(std::string level) {
 	};
 	int	index = get_level_index(levels, level);
 
-	(this->*funcs[index])();
+	switch (index) {
+		case -1:
+			std::cout << "[ Probably complaining about insignificant problems ]"
+				<< std::endl;
+			break;
+		case 0:
+			std::cout << "[ " << levels[0] << " ]" << std::endl;
+			debug();
+			std::cout << std::endl;
+		case 1:
+			std::cout << "[ " << levels[1] << " ]" << std::endl;
+			info();
+			std::cout << std::endl;
+		case 2:
+			std::cout << "[ " << levels[2] << " ]" << std::endl;
+			warning();
+			std::cout << std::endl;
+		case 3:
+			std::cout << "[ " << levels[3] << " ]" << std::endl;
+			error();
+			std::cout << std::endl;
+	}
 }
 
 void Karen::debug(void) {
