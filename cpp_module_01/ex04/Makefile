@@ -6,7 +6,7 @@
 #    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/13 11:48:35 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/07/15 10:33:43 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ $(NAME):					$(OBJS)
 							@ $(CC) $(FLAGS_COMP) -c $< -o $@
 
 clean:
-							@ $(RM) $(OBJS)
+							@ $(RM) $(OBJS) error.log
 							@ printf "$(_INFO) Deleted files and directory\n"
 
 fclean:						clean
