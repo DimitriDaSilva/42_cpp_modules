@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:17:35 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/15 19:59:33 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/16 15:42:17 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ class Fixed {
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 	private:
-		int	_fixed_point_value;
-		static const int _fractional_bits;
+		int	_value;
+		static const int _bits = 8;
 };
 
 #endif
-
