@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 19:53:34 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/12 12:10:44 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/20 14:50:56 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void printTable(int number_of_contacts, Contact contact_list[]) {
 	printTableRowDelimiter();
 }
 
-void printTableHeader() {
+void printTableHeader(void) {
 	printTableCell("Index");
 	printTableCell("First name");
 	printTableCell("Last name");
@@ -46,7 +46,7 @@ void printTableCell(std::string content) {
 		<< std::setw(COLUMN_WIDTH) << adj_content;
 }
 
-void printTableRowDelimiter() {
+void printTableRowDelimiter(void) {
 	int	table_width = NUMBER_COLUMNS * COLUMN_WIDTH + NUMBER_COLUMNS + 1;
 
 	for (int i = 0; i < table_width; i++) {
@@ -56,8 +56,8 @@ void printTableRowDelimiter() {
 }
 
 bool isInteger(const std::string& str) {
-	int check = 0;
-	char *ptr = nullptr;
+	int		check = 0;
+	char	*ptr = nullptr;
 
 	if (str.empty() || !std::isdigit(str[0])) {
 		return false;

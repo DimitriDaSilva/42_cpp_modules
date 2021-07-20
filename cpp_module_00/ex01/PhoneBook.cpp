@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:15:04 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/12 12:03:45 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/20 14:47:29 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+int PhoneBook::number_of_contacts = 0;
+
 void PhoneBook::addContact() {
-	Contact newContact;
-	int index;
+	Contact	newContact;
+	int		index;
 
 	// Cap the index independentely of the number_of_contacts entered
 	index = number_of_contacts % MAX_NUMBER_OF_CONTACTS;
@@ -28,8 +30,8 @@ void PhoneBook::addContact() {
 
 void PhoneBook::searchContact() {
 	std::string	input;
-	long index = 0;
-	bool is_index_valid = false;
+	long		index = 0;
+	bool		is_index_valid = false;
 
 	// Do nothing if no contacts
 	if (number_of_contacts == 0) {

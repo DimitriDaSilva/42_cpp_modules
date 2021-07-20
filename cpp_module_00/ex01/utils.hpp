@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 19:53:37 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/12 12:08:22 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/20 14:48:07 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 # include "Contact.hpp"
 
 void printTable(int number_of_contacts, Contact contact_list[]);
-void printTableHeader();
+void printTableHeader(void);
 void printTableCell(std::string content);
-void printTableRowDelimiter();
+void printTableRowDelimiter(void);
 bool isInteger(const std::string& str);
 
 #endif

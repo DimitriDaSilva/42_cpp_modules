@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 16:51:16 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/12 11:59:02 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/20 14:44:54 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class Contact {
 		std::string	phone_number;
 		std::string	darkest_secret;
 	public:
-		void createContact(int i);
-		void printContactRow();
-		void printContactInfo();
+		void		createContact(int i);
+		void		printContactRow(void);
+		void		printContactInfo(void);
 };
 
 # include "utils.hpp"

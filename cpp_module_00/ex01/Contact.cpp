@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 16:51:14 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 20:01:25 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/20 14:46:00 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void Contact::createContact(int i) {
 	std::cin >> darkest_secret;
 }
 
-void Contact::printContactRow() {
+void Contact::printContactRow(void) {
 	printTableCell(std::to_string(index));
 	printTableCell(first_name);
 	printTableCell(last_name);
@@ -34,10 +34,10 @@ void Contact::printContactRow() {
 	std::cout << "|" << std::endl;
 }
 
-void Contact::printContactInfo() {
-	std::cout << "First name: " << first_name << std::endl;
-	std::cout << "Last name: " << last_name << std::endl;
-	std::cout << "Nickname: " << nickname << std::endl;
-	std::cout << "Phone number: " << phone_number << std::endl;
-	std::cout << "Darkest secret: " << darkest_secret << std::endl;
+void Contact::printContactInfo(void) {
+	std::cout << "First name: " << first_name << std::endl
+		<< "Last name: " << last_name << std::endl
+		<< "Nickname: " << nickname << std::endl
+		<< "Phone number: " << phone_number << std::endl
+		<< "Darkest secret: " << darkest_secret << std::endl;
 }

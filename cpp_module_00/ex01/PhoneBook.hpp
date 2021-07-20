@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:17:35 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/11 20:27:22 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/20 14:43:12 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 # include "Contact.hpp"
 
 class PhoneBook {
-	private:
-		Contact contact_list[MAX_NUMBER_OF_CONTACTS];
-		int number_of_contacts{0};
 	public:
-		void addContact();
-		void searchContact();
+		void		addContact();
+		void		searchContact();
+	private:
+		Contact		contact_list[MAX_NUMBER_OF_CONTACTS];
+		static int	number_of_contacts;
 };
 
 #endif

@@ -123,10 +123,11 @@ void Account::displayStatus( void ) const {
 }
 
 void Account::_displayTimestamp( void ) {
-	auto now = std::chrono::system_clock::now();
-	auto to_time = std::chrono::system_clock::to_time_t(now);
+	time_t to_time = std::chrono::system_clock::to_time_t(
+			std::chrono::system_clock::now()
+		);
 
-    std::string s(30, '\0');
+	std::string s(30, '\0');
     std::strftime((char *)s.c_str(),
 					s.size(),
 					"%Y%m%d_%H%M%S",
