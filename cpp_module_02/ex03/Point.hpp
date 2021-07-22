@@ -1,6 +1,7 @@
 #ifndef POINT_HPP
 # define POINT_HPP
 
+# include "Fixed.hpp"
 # include <iostream>
 # include <string>
 # include <cmath>
@@ -16,7 +17,7 @@ class Point {
 		// Default
 		Point(void);
 		// Type specific
-		Point(const int value);
+		Point(const float x, const float y);
 		// Copy
 		Point(const Point& other);
 
@@ -40,11 +41,14 @@ class Point {
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
 
+		void printCoordinates(void) const;
 
 	private:
 /******************************************************************************/
 /*                   	          PRIVATE DATA                                */
 /******************************************************************************/
+		const Fixed _x;
+		const Fixed _y;
 
 };
 
