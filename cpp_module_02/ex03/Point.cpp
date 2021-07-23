@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/23 18:18:47 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/23 19:47:56 by dda-silv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Point.hpp"
 
 /******************************************************************************/
@@ -22,11 +34,11 @@ Point::~Point(void) {}
 
 /*                                Assignement                                  */
 Point& Point::operator=(const Point& other) {
-	Point *new_point = new Point(other._x.toFloat(), other._y.toFloat());
+	_x = other._x;
+	_y = other._y;
 
-	return *new_point;
+	return *this;
 }
-
 
 /******************************************************************************/
 /*                   	     GETTERS & SETTERS                                */
@@ -38,6 +50,14 @@ Point& Point::operator=(const Point& other) {
 /******************************************************************************/
 
 void Point::printCoordinates(void) const {
-	std::cout << "x: " << _x << std::endl;
-	std::cout << "y: " << _y << std::endl;
+	std::cout << "(x: " << _x << ", y: " << _y << ")" << std::endl;
+}
+
+// Area of a triangle formula modified (we don't divide by 2)
+float Point::sign(Point p2, Point p3) {
+	Fixed res;
+
+	res = (this->_x - p3._x) * (p2._y - p3._y) - (p2._x - p3._x) * (this->_y - p3._y);
+
+    return res.toFloat();
 }

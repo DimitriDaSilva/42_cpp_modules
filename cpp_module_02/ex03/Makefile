@@ -6,7 +6,7 @@
 #    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/22 18:16:38 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/07/23 19:25:28 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ NAME				:=		point
 # List of sources
 SRCS				:=		./main.cpp		\
 								./Fixed.cpp	\
-								./Point.cpp
+								./Point.cpp	\
+								./bsp.cpp
 OBJS				:=		${SRCS:.cpp=.o}
 
 # Compiler

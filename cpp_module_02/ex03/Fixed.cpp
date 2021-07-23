@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:15:04 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/22 18:47:55 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/23 16:27:38 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ std::ostream& operator<<(std::ostream& output, const Fixed& obj) {
 /*                   	     GETTERS & SETTERS                                */
 /******************************************************************************/
 
-int Fixed::getRawBits(void) const {
+int Fixed::getRawBits(void) {
 	return _raw_bits;
 }
 
