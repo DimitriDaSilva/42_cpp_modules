@@ -1,4 +1,4 @@
-#include "ClassName.hpp"
+#include "Cat.hpp"
 
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
@@ -6,37 +6,33 @@
 
 /*                                Constructors                                */
 
-ClassName::ClassName(void) {
+Cat::Cat(void) {
+	_type = "Cat";
 }
 
-ClassName::ClassName(int const value) {
-}
-
-ClassName::ClassName(ClassName const& other) {
+Cat::Cat(Cat const& other) {
 	*this = other;
 }
 
 /*                                Destructors                                 */
 
-ClassName::~ClassName(void) {}
+Cat::~Cat(void) {}
 
 /******************************************************************************/
 /*                OVERLOADING OPERATORS (CLASS & NON-CLASS)                   */
 /******************************************************************************/
 
 /*                                Assignement                                  */
-
-ClassName& ClassName::operator=(ClassName const& other) {
+Cat& Cat::operator=(Cat const& other) {
+	_type = other._type;
 
 	return *this;
 }
 
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
-
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
+
+void Cat::makeSound(void) const {
+	std::cout << "Meow!" << std::endl;
+}

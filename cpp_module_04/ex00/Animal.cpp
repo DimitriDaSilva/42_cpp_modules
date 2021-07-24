@@ -1,4 +1,16 @@
-#include "ClassName.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/24 16:19:10 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 16:54:50 by dda-silv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Animal.hpp"
 
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
@@ -6,19 +18,18 @@
 
 /*                                Constructors                                */
 
-ClassName::ClassName(void) {
+Animal::Animal(void) {
+	_type = "None";
+
 }
 
-ClassName::ClassName(int const value) {
-}
-
-ClassName::ClassName(ClassName const& other) {
+Animal::Animal(Animal const& other) {
 	*this = other;
 }
 
 /*                                Destructors                                 */
 
-ClassName::~ClassName(void) {}
+Animal::~Animal(void) {}
 
 /******************************************************************************/
 /*                OVERLOADING OPERATORS (CLASS & NON-CLASS)                   */
@@ -26,17 +37,22 @@ ClassName::~ClassName(void) {}
 
 /*                                Assignement                                  */
 
-ClassName& ClassName::operator=(ClassName const& other) {
+Animal& Animal::operator=(Animal const& other) {
+	_type = other._type;
 
 	return *this;
 }
-
 
 /******************************************************************************/
 /*                   	     GETTERS & SETTERS                                */
 /******************************************************************************/
 
+std::string Animal::getType(void) const {
+	return _type;
+}
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
+
+void Animal::makeSound(void) const {}

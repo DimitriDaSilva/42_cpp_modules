@@ -1,4 +1,4 @@
-#include "ClassName.hpp"
+#include "Dog.hpp"
 
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
@@ -6,37 +6,33 @@
 
 /*                                Constructors                                */
 
-ClassName::ClassName(void) {
+Dog::Dog(void) {
+	_type = "Dog";
 }
 
-ClassName::ClassName(int const value) {
-}
-
-ClassName::ClassName(ClassName const& other) {
+Dog::Dog(Dog const& other) {
 	*this = other;
 }
 
 /*                                Destructors                                 */
 
-ClassName::~ClassName(void) {}
+Dog::~Dog(void) {}
 
 /******************************************************************************/
 /*                OVERLOADING OPERATORS (CLASS & NON-CLASS)                   */
 /******************************************************************************/
 
 /*                                Assignement                                  */
-
-ClassName& ClassName::operator=(ClassName const& other) {
+Dog& Dog::operator=(Dog const& other) {
+	_type = other._type;
 
 	return *this;
 }
 
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
-
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
+
+void Dog::makeSound(void) const {
+	std::cout << "Woof!" << std::endl;
+}

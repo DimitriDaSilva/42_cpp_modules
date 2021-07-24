@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 16:19:22 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 16:19:23 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/24 16:19:10 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 16:48:15 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-# include "ClapTrap.hpp"
-# include "ScavTrap.hpp"
-# include "FragTrap.hpp"
 # include <iostream>
 # include <string>
 # include <cmath>
 
-class DiamondTrap : public ScavTrap, public FragTrap {
+class Animal {
 
 	public:
 /******************************************************************************/
@@ -29,39 +26,39 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 
 /*                                Constructors                                */
 		// Default
-		DiamondTrap(void);
-		// Type specific
-		DiamondTrap(std::string const name);
+		Animal(void);
 		// Copy
-		DiamondTrap(DiamondTrap const& other);
+		Animal(Animal const& other);
 
 /*                                Destructors                                 */
 		// Default
-		~DiamondTrap(void);
+		virtual ~Animal(void);
 
 /******************************************************************************/
 /*                   	   OVERLOADING OPERATORS                              */
 /******************************************************************************/
 
 /*                                Assignement                                 */
-		DiamondTrap& operator=(DiamondTrap const& other);
+		Animal& operator=(Animal const& other);
+
+/******************************************************************************/
+/*                   	     GETTERS & SETTERS                                */
+/******************************************************************************/
+
+		std::string getType(void) const;
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
 
-		virtual void attack(std::string const& target);
-		virtual void takeDamange(unsigned int amount);
-		virtual void beRepaired(unsigned int amount);
-		void whoAmI(void);
+		virtual void makeSound(void) const;
 
-
-	private:
+	protected:
 /******************************************************************************/
 /*                   	          PRIVATE DATA                                */
 /******************************************************************************/
 
-		std::string	_clap_name;
+		std::string _type;
 };
 
 #endif

@@ -10,5 +10,7 @@
 */*/fixed
 */*/point
 */*/clap_trap
+*/*/animal
 *.o
 *.log
+*.swp
