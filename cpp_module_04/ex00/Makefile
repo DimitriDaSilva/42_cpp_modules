@@ -6,7 +6,7 @@
 #    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/24 16:31:14 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/07/24 17:08:20 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,12 @@
 NAME				:=		animal
 
 # List of sources
-SRCS				:=		./main.cpp			\
-								./Animal.cpp	\
-								./Cat.cpp		\
-								./Dog.cpp
+SRCS				:=		./main.cpp				\
+								./Animal.cpp		\
+								./Cat.cpp			\
+								./Dog.cpp			\
+								./WrongAnimal.cpp	\
+								./WrongCat.cpp
 OBJS				:=		${SRCS:.cpp=.o}
 
 # Compiler

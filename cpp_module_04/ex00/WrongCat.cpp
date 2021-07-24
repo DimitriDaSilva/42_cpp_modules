@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassName.cpp                                      :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 17:07:08 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/24 17:07:31 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 17:07:42 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClassName.hpp"
+#include "WrongCat.hpp"
 
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
@@ -18,37 +18,33 @@
 
 /*                                Constructors                                */
 
-ClassName::ClassName(void) {
+WrongCat::WrongCat(void) {
+	_type = "WrongCat";
 }
 
-ClassName::ClassName(int const value) {
-}
-
-ClassName::ClassName(ClassName const& other) {
+WrongCat::WrongCat(WrongCat const& other) {
 	*this = other;
 }
 
 /*                                Destructors                                 */
 
-ClassName::~ClassName(void) {}
+WrongCat::~WrongCat(void) {}
 
 /******************************************************************************/
 /*                OVERLOADING OPERATORS (CLASS & NON-CLASS)                   */
 /******************************************************************************/
 
 /*                                Assignement                                  */
-
-ClassName& ClassName::operator=(ClassName const& other) {
+WrongCat& WrongCat::operator=(WrongCat const& other) {
+	_type = other._type;
 
 	return *this;
 }
 
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
-
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
+
+void WrongCat::makeSound(void) const {
+	std::cout << "Meow!" << std::endl;
+}

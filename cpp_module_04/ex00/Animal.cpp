@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 16:19:10 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 16:54:50 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/24 17:11:13 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,6 @@ std::string Animal::getType(void) const {
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
 
-void Animal::makeSound(void) const {}
+void Animal::makeSound(void) const {
+	std::cout << "* MUTED *" << std::endl;
+}

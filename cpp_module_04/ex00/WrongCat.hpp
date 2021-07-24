@@ -1,54 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassName.cpp                                      :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 17:07:08 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/24 17:07:33 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 17:07:42 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClassName.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
+# include "WrongAnimal.hpp"
+# include <iostream>
+# include <string>
+# include <cmath>
+
+class WrongCat : public WrongAnimal {
+
+	public:
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
 /******************************************************************************/
 
 /*                                Constructors                                */
-
-ClassName::ClassName(void) {
-}
-
-ClassName::ClassName(int const value) {
-}
-
-ClassName::ClassName(ClassName const& other) {
-	*this = other;
-}
+		// Default
+		WrongCat(void);
+		// Copy
+		WrongCat(WrongCat const& other);
 
 /*                                Destructors                                 */
-
-ClassName::~ClassName(void) {}
-
-/******************************************************************************/
-/*                OVERLOADING OPERATORS (CLASS & NON-CLASS)                   */
-/******************************************************************************/
-
-/*                                Assignement                                  */
-
-ClassName& ClassName::operator=(ClassName const& other) {
-
-	return *this;
-}
-
+		// Default
+		virtual ~WrongCat(void);
 
 /******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
+/*                   	   OVERLOADING OPERATORS                              */
 /******************************************************************************/
 
+/*                                Assignement                                 */
+		WrongCat& operator=(WrongCat const& other);
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
+
+		virtual void makeSound(void) const;
+};
+
+#endif

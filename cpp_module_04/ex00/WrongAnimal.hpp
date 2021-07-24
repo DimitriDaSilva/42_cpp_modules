@@ -1,54 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassName.cpp                                      :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 17:07:08 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/24 16:19:10 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 17:09:48 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClassName.hpp"
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
+# include <iostream>
+# include <string>
+# include <cmath>
+
+class WrongAnimal {
+
+	public:
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
 /******************************************************************************/
 
 /*                                Constructors                                */
-
-ClassName::ClassName(void) {
-}
-
-ClassName::ClassName(int const value) {
-}
-
-ClassName::ClassName(ClassName const& other) {
-	*this = other;
-}
+		// Default
+		WrongAnimal(void);
+		// Copy
+		WrongAnimal(WrongAnimal const& other);
 
 /*                                Destructors                                 */
-
-ClassName::~ClassName(void) {}
+		// Default
+		virtual ~WrongAnimal(void);
 
 /******************************************************************************/
-/*                OVERLOADING OPERATORS (CLASS & NON-CLASS)                   */
+/*                   	   OVERLOADING OPERATORS                              */
 /******************************************************************************/
 
-/*                                Assignement                                  */
-
-ClassName& ClassName::operator=(ClassName const& other) {
-
-	return *this;
-}
-
+/*                                Assignement                                 */
+		WrongAnimal& operator=(WrongAnimal const& other);
 
 /******************************************************************************/
 /*                   	     GETTERS & SETTERS                                */
 /******************************************************************************/
 
+		std::string getType(void) const;
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
+
+		void makeSound(void) const;
+
+	protected:
+/******************************************************************************/
+/*                   	          PRIVATE DATA                                */
+/******************************************************************************/
+
+		std::string _type;
+};
+
+#endif
