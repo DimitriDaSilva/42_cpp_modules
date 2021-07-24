@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 09:43:21 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 11:06:38 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/24 10:42:28 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 11:23:09 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
+# include "ClapTrap.hpp"
 # include <iostream>
 # include <string>
 # include <cmath>
 
-class ClapTrap {
+class ScavTrap : public ClapTrap {
 
 	public:
 /******************************************************************************/
@@ -26,22 +27,22 @@ class ClapTrap {
 
 /*                                Constructors                                */
 		// Default
-		ClapTrap(void);
+		ScavTrap(void);
 		// Type specific
-		ClapTrap(std::string const name);
+		ScavTrap(std::string const name);
 		// Copy
-		ClapTrap(ClapTrap const& other);
+		ScavTrap(ScavTrap const& other);
 
 /*                                Destructors                                 */
 		// Default
-		~ClapTrap(void);
+		~ScavTrap(void);
 
 /******************************************************************************/
 /*                   	   OVERLOADING OPERATORS                              */
 /******************************************************************************/
 
 /*                                Assignement                                 */
-		ClapTrap& operator=(ClapTrap const& other);
+		ScavTrap& operator=(ScavTrap const& other);
 
 /******************************************************************************/
 /*                   	     GETTERS & SETTERS                                */
@@ -52,20 +53,16 @@ class ClapTrap {
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
 
-		void attack(std::string const& target);
-		void takeDamange(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		virtual void attack(std::string const& target);
+		virtual void takeDamange(unsigned int amount);
+		virtual void beRepaired(unsigned int amount);
+		void guardGate(void);
 
 
-	protected:
+	private:
 /******************************************************************************/
 /*                   	          PRIVATE DATA                                */
 /******************************************************************************/
-		std::string		_name;
-		unsigned int	_hp;
-		unsigned int	_energy_pts;
-		unsigned int	_attack_dmg;
-		
 
 };
 

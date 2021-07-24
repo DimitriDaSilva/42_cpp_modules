@@ -16,9 +16,9 @@ class ClassName {
 		// Default
 		ClassName(void);
 		// Type specific
-		ClassName(const int value);
+		ClassName(int const value);
 		// Copy
-		ClassName(const ClassName& other);
+		ClassName(ClassName const& other);
 
 /*                                Destructors                                 */
 		// Default
@@ -29,7 +29,7 @@ class ClassName {
 /******************************************************************************/
 
 /*                                Assignement                                 */
-		ClassName& operator=(const ClassName& other);
+		ClassName& operator=(ClassName const& other);
 
 /******************************************************************************/
 /*                   	     GETTERS & SETTERS                                */

@@ -6,7 +6,7 @@
 #    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/24 09:43:07 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/07/24 10:55:30 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,9 @@
 NAME				:=		clap_trap
 
 # List of sources
-SRCS				:=		./main.cpp		\
-								./ClapTrap.cpp
+SRCS				:=		./main.cpp			\
+								./ClapTrap.cpp	\
+								./ScavTrap.cpp
 OBJS				:=		${SRCS:.cpp=.o}
 
 # Compiler

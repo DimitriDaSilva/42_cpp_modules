@@ -9,10 +9,10 @@
 ClassName::ClassName(void) {
 }
 
-ClassName::ClassName(const int value) {
+ClassName::ClassName(int const value) {
 }
 
-ClassName::ClassName(const ClassName& other) {
+ClassName::ClassName(ClassName const& other) {
 	*this = other;
 }
 
@@ -25,7 +25,7 @@ ClassName::~ClassName(void) {}
 /******************************************************************************/
 
 /*                                Assignement                                  */
-ClassName& ClassName::operator=(const ClassName& other) {
+ClassName& ClassName::operator=(ClassName const& other) {
 
 	return *this;
 }
