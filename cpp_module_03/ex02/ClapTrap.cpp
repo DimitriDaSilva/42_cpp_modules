@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 09:43:22 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 11:13:26 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/24 15:10:03 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ ClapTrap::~ClapTrap(void) {
 /******************************************************************************/
 
 /*                                Assignement                                  */
+
 ClapTrap& ClapTrap::operator=(ClapTrap const& other) {
 	std::cout << "ClapTrap assignation operator called" << std::endl;
 
@@ -63,12 +64,6 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& other) {
 
 	return *this;
 }
-
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */

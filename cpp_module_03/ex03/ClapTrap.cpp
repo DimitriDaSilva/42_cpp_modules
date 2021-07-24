@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 09:43:22 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 15:08:45 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/24 15:10:52 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /*                                Constructors                                */
 
 ClapTrap::ClapTrap(void) {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default ClapTrap constructor called" << std::endl;
 
 	_name = "P. Claptrappington";
 	_hp = 10;
@@ -28,7 +28,7 @@ ClapTrap::ClapTrap(void) {
 }
 
 ClapTrap::ClapTrap(std::string const name) {
-	std::cout << "String constructor called" << std::endl;
+	std::cout << "String ClapTrap constructor called" << std::endl;
 
 	_name = name;
 	_hp = 10;
@@ -37,7 +37,7 @@ ClapTrap::ClapTrap(std::string const name) {
 }
 
 ClapTrap::ClapTrap(ClapTrap const& other) {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy ClapTrap constructor called" << std::endl;
 
 	*this = other;
 }
@@ -45,7 +45,7 @@ ClapTrap::ClapTrap(ClapTrap const& other) {
 /*                                Destructors                                 */
 
 ClapTrap::~ClapTrap(void) {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 /******************************************************************************/
@@ -55,7 +55,7 @@ ClapTrap::~ClapTrap(void) {
 /*                                Assignement                                  */
 
 ClapTrap& ClapTrap::operator=(ClapTrap const& other) {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "ClapTrap assignation operator called" << std::endl;
 
 	_name = other._name;
 	_hp = other._hp;
@@ -78,17 +78,17 @@ void ClapTrap::takeDamange(unsigned int amount) {
 	if (_hp > amount) {
 		_hp -= amount;
 		std::cout << "ClapTrap " << _name << " takes " << amount
-		   << " of damage. He now has " << _hp << " hp left!" << std::endl;
+		   << " of damage. It now has " << _hp << " hp left!" << std::endl;
 	} else {
 		_hp = 0;
 		std::cout << "ClapTrap " << _name << " takes " << amount
-		   << " of damage. The attack killed him!" << std::endl;
+		   << " of damage. The attack killed it!" << std::endl;
 	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
 	_hp += amount;
 	std::cout << "ClapTrap " << _name
-		<< " is being repaired... He gains " << amount
-		<< " of hp. He now has " << _hp << " hp left!" << std::endl;
+		<< " is being repaired... It gains " << amount
+		<< " of hp. It now has " << _hp << " hp left!" << std::endl;
 }

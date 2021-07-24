@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 10:42:28 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 15:05:45 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/24 09:43:21 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 15:11:03 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
-# include "ClapTrap.hpp"
 # include <iostream>
 # include <string>
 # include <cmath>
 
-class FragTrap : public ClapTrap {
+class ClapTrap {
 
 	public:
 /******************************************************************************/
@@ -27,31 +26,40 @@ class FragTrap : public ClapTrap {
 
 /*                                Constructors                                */
 		// Default
-		FragTrap(void);
+		ClapTrap(void);
 		// Type specific
-		FragTrap(std::string const name);
+		ClapTrap(std::string const name);
 		// Copy
-		FragTrap(FragTrap const& other);
+		ClapTrap(ClapTrap const& other);
 
 /*                                Destructors                                 */
 		// Default
-		~FragTrap(void);
+		~ClapTrap(void);
 
 /******************************************************************************/
 /*                   	   OVERLOADING OPERATORS                              */
 /******************************************************************************/
 
 /*                                Assignement                                 */
-		FragTrap& operator=(FragTrap const& other);
+		ClapTrap& operator=(ClapTrap const& other);
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
 
-		virtual void attack(std::string const& target);
-		virtual void takeDamange(unsigned int amount);
-		virtual void beRepaired(unsigned int amount);
-		void highFivesGuys(void);
+		void attack(std::string const& target);
+		void takeDamange(unsigned int amount);
+		void beRepaired(unsigned int amount);
+
+	protected:
+/******************************************************************************/
+/*                   	          PRIVATE DATA                                */
+/******************************************************************************/
+
+		std::string		_name;
+		unsigned int	_hp;
+		unsigned int	_energy_pts;
+		unsigned int	_attack_dmg;
 };
 
 #endif

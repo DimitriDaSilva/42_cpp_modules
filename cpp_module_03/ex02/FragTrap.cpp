@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 10:42:27 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 11:56:52 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/24 15:10:30 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ FragTrap::~FragTrap(void) {
 /******************************************************************************/
 
 /*                                Assignement                                  */
+
 FragTrap& FragTrap::operator=(FragTrap const& other) {
 	std::cout << "FragTrap assignation operator called" << std::endl;
 
@@ -63,12 +64,6 @@ FragTrap& FragTrap::operator=(FragTrap const& other) {
 
 	return *this;
 }
-
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */

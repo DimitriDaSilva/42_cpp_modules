@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 10:42:27 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 11:22:30 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/24 15:09:37 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ ScavTrap::~ScavTrap(void) {
 /******************************************************************************/
 
 /*                                Assignement                                  */
+
 ScavTrap& ScavTrap::operator=(ScavTrap const& other) {
 	std::cout << "ScavTrap assignation operator called" << std::endl;
 
@@ -63,12 +64,6 @@ ScavTrap& ScavTrap::operator=(ScavTrap const& other) {
 
 	return *this;
 }
-
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */

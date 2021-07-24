@@ -1,24 +1,14 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 10:42:28 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 15:05:45 by dda-silv         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 # include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 # include <iostream>
 # include <string>
 # include <cmath>
 
-class FragTrap : public ClapTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
 
 	public:
 /******************************************************************************/
@@ -27,22 +17,22 @@ class FragTrap : public ClapTrap {
 
 /*                                Constructors                                */
 		// Default
-		FragTrap(void);
+		DiamondTrap(void);
 		// Type specific
-		FragTrap(std::string const name);
+		DiamondTrap(std::string const name);
 		// Copy
-		FragTrap(FragTrap const& other);
+		DiamondTrap(DiamondTrap const& other);
 
 /*                                Destructors                                 */
 		// Default
-		~FragTrap(void);
+		~DiamondTrap(void);
 
 /******************************************************************************/
 /*                   	   OVERLOADING OPERATORS                              */
 /******************************************************************************/
 
 /*                                Assignement                                 */
-		FragTrap& operator=(FragTrap const& other);
+		DiamondTrap& operator=(DiamondTrap const& other);
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
@@ -51,7 +41,15 @@ class FragTrap : public ClapTrap {
 		virtual void attack(std::string const& target);
 		virtual void takeDamange(unsigned int amount);
 		virtual void beRepaired(unsigned int amount);
-		void highFivesGuys(void);
+		void whoAmI(void);
+
+
+	private:
+/******************************************************************************/
+/*                   	          PRIVATE DATA                                */
+/******************************************************************************/
+
+		std::string	_clap_name;
 };
 
 #endif

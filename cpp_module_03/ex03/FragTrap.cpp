@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 09:43:22 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 15:08:45 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/24 10:42:27 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 15:11:40 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
@@ -18,34 +18,34 @@
 
 /*                                Constructors                                */
 
-ClapTrap::ClapTrap(void) {
-	std::cout << "Default constructor called" << std::endl;
+FragTrap::FragTrap(void) {
+	std::cout << "Default FragTrap constructor called" << std::endl;
 
-	_name = "P. Claptrappington";
-	_hp = 10;
-	_energy_pts = 10;
-	_attack_dmg = 0;
+	_name = "P. Fragtrappington";
+	_hp = 100;
+	_energy_pts = 100;
+	_attack_dmg = 30;
 }
 
-ClapTrap::ClapTrap(std::string const name) {
-	std::cout << "String constructor called" << std::endl;
+FragTrap::FragTrap(std::string const name) {
+	std::cout << "String FragTrap constructor called" << std::endl;
 
 	_name = name;
-	_hp = 10;
-	_energy_pts = 10;
-	_attack_dmg = 0;
+	_hp = 100;
+	_energy_pts = 100;
+	_attack_dmg = 30;
 }
 
-ClapTrap::ClapTrap(ClapTrap const& other) {
-	std::cout << "Copy constructor called" << std::endl;
+FragTrap::FragTrap(FragTrap const& other) {
+	std::cout << "Copy FragTrap constructor called" << std::endl;
 
 	*this = other;
 }
 
 /*                                Destructors                                 */
 
-ClapTrap::~ClapTrap(void) {
-	std::cout << "Destructor called" << std::endl;
+FragTrap::~FragTrap(void) {
+	std::cout << "FragTrap destructor called" << std::endl;
 }
 
 /******************************************************************************/
@@ -54,8 +54,8 @@ ClapTrap::~ClapTrap(void) {
 
 /*                                Assignement                                  */
 
-ClapTrap& ClapTrap::operator=(ClapTrap const& other) {
-	std::cout << "Assignation operator called" << std::endl;
+FragTrap& FragTrap::operator=(FragTrap const& other) {
+	std::cout << "FragTrap assignation operator called" << std::endl;
 
 	_name = other._name;
 	_hp = other._hp;
@@ -69,26 +69,31 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& other) {
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
 
-void ClapTrap::attack(std::string const& target) {
-	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing "
+void FragTrap::attack(std::string const& target) {
+	std::cout << "FragTrap " << _name << " attacks " << target << ", causing "
 		<< _attack_dmg << " points of damange!" << std::endl;
 }
 
-void ClapTrap::takeDamange(unsigned int amount) {
+void FragTrap::takeDamange(unsigned int amount) {
 	if (_hp > amount) {
 		_hp -= amount;
-		std::cout << "ClapTrap " << _name << " takes " << amount
-		   << " of damage. He now has " << _hp << " hp left!" << std::endl;
+		std::cout << "FragTrap " << _name << " takes " << amount
+		   << " of damage. It now has " << _hp << " hp left!" << std::endl;
 	} else {
 		_hp = 0;
-		std::cout << "ClapTrap " << _name << " takes " << amount
-		   << " of damage. The attack killed him!" << std::endl;
+		std::cout << "FragTrap " << _name << " takes " << amount
+		   << " of damage. The attack killed it!" << std::endl;
 	}
 }
 
-void ClapTrap::beRepaired(unsigned int amount) {
+void FragTrap::beRepaired(unsigned int amount) {
 	_hp += amount;
-	std::cout << "ClapTrap " << _name
-		<< " is being repaired... He gains " << amount
-		<< " of hp. He now has " << _hp << " hp left!" << std::endl;
+	std::cout << "FragTrap " << _name
+		<< " is being repaired... It gains " << amount
+		<< " of hp. It now has " << _hp << " hp left!" << std::endl;
+}
+
+void FragTrap::highFivesGuys(void) {
+	std::cout << "FragTrap " << _name << " requests the highest of high fives!"
+		<< std::endl;
 }
