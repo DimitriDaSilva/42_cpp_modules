@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 16:19:10 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 17:56:05 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 23:09:14 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Brain.hpp"
 
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
@@ -18,23 +18,20 @@
 
 /*                                Constructors                                */
 
-Animal::Animal(void) {
-	std::cout << "Default Animal constructor called" << std::endl;
-
-	_type = "None";
-
+Brain::Brain(void) {
+	std::cout << "Default Brain constructor called" << std::endl;
 }
 
-Animal::Animal(Animal const& other) {
-	std::cout << "Copy Animal constructor called" << std::endl;
+Brain::Brain(Brain const& other) {
+	std::cout << "Copy Brain constructor called" << std::endl;
 
 	*this = other;
 }
 
 /*                                Destructors                                 */
 
-Animal::~Animal(void) {
-	std::cout << "Animal destructor called" << std::endl;
+Brain::~Brain(void) {
+	std::cout << "Brain destructor called" << std::endl;
 }
 
 /******************************************************************************/
@@ -43,26 +40,12 @@ Animal::~Animal(void) {
 
 /*                                Assignement                                  */
 
-Animal& Animal::operator=(Animal const& other) {
-	std::cout << "Animal assignation operator called" << std::endl;
+Brain& Brain::operator=(Brain const& other) {
+	std::cout << "Brain assignation & operator called" << std::endl;
 
-	_type = other._type;
+	for (int i = NUMBER_IDEAS; i < NUMBER_IDEAS; i++) {
+		this->_ideas[i] = other._ideas[i];
+	}
 
 	return *this;
-}
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
-std::string Animal::getType(void) const {
-	return _type;
-}
-
-/******************************************************************************/
-/*                   	    OTHER CLASS FUNCTIONS                             */
-/******************************************************************************/
-
-void Animal::makeSound(void) const {
-	std::cout << "* MUTED *" << std::endl;
 }

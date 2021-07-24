@@ -1,68 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 16:19:10 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 17:56:05 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/24 16:48:15 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
+# include <iostream>
+# include <string>
+# include <cmath>
+
+class Animal {
+
+	public:
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
 /******************************************************************************/
 
 /*                                Constructors                                */
-
-Animal::Animal(void) {
-	std::cout << "Default Animal constructor called" << std::endl;
-
-	_type = "None";
-
-}
-
-Animal::Animal(Animal const& other) {
-	std::cout << "Copy Animal constructor called" << std::endl;
-
-	*this = other;
-}
+		// Default
+		Animal(void);
+		// Copy
+		Animal(Animal const& other);
 
 /*                                Destructors                                 */
-
-Animal::~Animal(void) {
-	std::cout << "Animal destructor called" << std::endl;
-}
+		// Default
+		virtual ~Animal(void);
 
 /******************************************************************************/
-/*                OVERLOADING OPERATORS (CLASS & NON-CLASS)                   */
+/*                   	   OVERLOADING OPERATORS                              */
 /******************************************************************************/
 
-/*                                Assignement                                  */
-
-Animal& Animal::operator=(Animal const& other) {
-	std::cout << "Animal assignation operator called" << std::endl;
-
-	_type = other._type;
-
-	return *this;
-}
+/*                                Assignement                                 */
+		Animal& operator=(Animal const& other);
 
 /******************************************************************************/
 /*                   	     GETTERS & SETTERS                                */
 /******************************************************************************/
 
-std::string Animal::getType(void) const {
-	return _type;
-}
+		std::string getType(void) const;
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
 
-void Animal::makeSound(void) const {
-	std::cout << "* MUTED *" << std::endl;
-}
+		virtual void makeSound(void) const;
+
+	protected:
+/******************************************************************************/
+/*                   	          PRIVATE DATA                                */
+/******************************************************************************/
+
+		std::string _type;
+};
+
+#endif

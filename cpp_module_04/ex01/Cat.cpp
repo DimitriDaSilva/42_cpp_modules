@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 16:19:10 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 17:56:05 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/24 17:06:37 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 23:07:41 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
@@ -18,23 +18,26 @@
 
 /*                                Constructors                                */
 
-Animal::Animal(void) {
-	std::cout << "Default Animal constructor called" << std::endl;
+Cat::Cat(void) {
+	std::cout << "Default Cat constructor called" << std::endl;
 
-	_type = "None";
-
+	_type = "Cat";
+	_brain = new Brain();
 }
 
-Animal::Animal(Animal const& other) {
-	std::cout << "Copy Animal constructor called" << std::endl;
+Cat::Cat(Cat const& other) {
+	std::cout << "Copy Cat constructor called" << std::endl;
 
-	*this = other;
+	_type = other._type;
+	_brain = new Brain(*other._brain);
 }
 
 /*                                Destructors                                 */
 
-Animal::~Animal(void) {
-	std::cout << "Animal destructor called" << std::endl;
+Cat::~Cat(void) {
+	std::cout << "Cat destructor called" << std::endl;
+
+	delete _brain;
 }
 
 /******************************************************************************/
@@ -42,27 +45,19 @@ Animal::~Animal(void) {
 /******************************************************************************/
 
 /*                                Assignement                                  */
-
-Animal& Animal::operator=(Animal const& other) {
-	std::cout << "Animal assignation operator called" << std::endl;
+Cat& Cat::operator=(Cat const& other) {
+	std::cout << "Cat assignation operator called" << std::endl;
 
 	_type = other._type;
+	*_brain = *other._brain;
 
 	return *this;
-}
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
-std::string Animal::getType(void) const {
-	return _type;
 }
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
 
-void Animal::makeSound(void) const {
-	std::cout << "* MUTED *" << std::endl;
+void Cat::makeSound(void) const {
+	std::cout << "Meow!" << std::endl;
 }

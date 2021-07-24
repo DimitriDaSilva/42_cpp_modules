@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/24 17:07:08 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/24 17:34:30 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@
 /*                                Constructors                                */
 
 ClassName::ClassName(void) {
-}
-
-ClassName::ClassName(int const value) {
 }
 
 ClassName::ClassName(ClassName const& other) {
