@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassName.cpp                                      :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/25 16:30:12 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/25 16:43:35 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClassName.hpp"
+#include "Cure.hpp"
 
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
@@ -18,34 +18,40 @@
 
 /*                                Constructors                                */
 
-ClassName::ClassName(void) {
+Cure::Cure(void) {
+	_type = "cure";
 }
 
-ClassName::ClassName(ClassName const& other) {
+Cure::Cure(Cure const& other) {
 	*this = other;
 }
 
 /*                                Destructors                                 */
 
-ClassName::~ClassName(void) {}
+Cure::~Cure(void) {}
 
 /******************************************************************************/
 /*                OVERLOADING OPERATORS (CLASS & NON-CLASS)                   */
 /******************************************************************************/
 
-/*                                Assignement                                 */
+/*                               Assignement                                  */
 
-ClassName& ClassName::operator=(ClassName const& other) {
-
+// Nothing to do here
+Cure& Cure::operator=(Cure const& other) {
+	(void)other;
 	return *this;
 }
-
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
+
+AMateria* Cure::clone(void) const {
+	AMateria *tmp = new Cure();
+
+	return tmp;
+}
+
+void Cure::use(ICharacter& target) {
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassName.cpp                                      :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/25 16:30:12 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/25 16:43:35 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClassName.hpp"
+#include "Ice.hpp"
 
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
@@ -18,34 +18,41 @@
 
 /*                                Constructors                                */
 
-ClassName::ClassName(void) {
+Ice::Ice(void) {
+	_type = "ice";
 }
 
-ClassName::ClassName(ClassName const& other) {
+Ice::Ice(Ice const& other) {
 	*this = other;
 }
 
 /*                                Destructors                                 */
 
-ClassName::~ClassName(void) {}
+Ice::~Ice(void) {}
 
 /******************************************************************************/
 /*                OVERLOADING OPERATORS (CLASS & NON-CLASS)                   */
 /******************************************************************************/
 
-/*                                Assignement                                 */
+/*                               Assignement                                  */
 
-ClassName& ClassName::operator=(ClassName const& other) {
-
+// Nothing to do here
+Ice& Ice::operator=(Ice const& other) {
+	(void)other;
 	return *this;
 }
-
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
+
+AMateria* Ice::clone(void) const {
+	AMateria *tmp = new Ice();
+
+	return tmp;
+}
+
+void Ice::use(ICharacter& target) {
+	std::cout << "* shoots an ice bolt at " << target.getName()
+		<< " *" << std::endl;
+}

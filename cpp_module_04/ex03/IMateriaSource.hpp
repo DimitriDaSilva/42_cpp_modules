@@ -1,75 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassName.hpp                                      :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/25 09:57:20 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/25 15:29:23 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASSNAME_HPP
-# define CLASSNAME_HPP
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
+# include "AMateria.hpp"
 # include <iostream>
 # include <string>
 # include <cmath>
 
-class ClassName {
+class IMateriaSource {
 
 	public:
-/******************************************************************************/
-/*                   	          PUBLIC DATA                                 */
-/******************************************************************************/
-
-
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
 /******************************************************************************/
 
 /*                                Constructors                                */
 		// Default
-		ClassName(void);
+		IMateriaSource(void);
 		// Copy
-		ClassName(ClassName const& other);
+		IMateriaSource(IMateriaSource const& other);
 
 /*                                Destructors                                 */
 		// Default
-		~ClassName(void);
+		virtual ~IMateriaSource(void);
 
 /******************************************************************************/
 /*                   	   OVERLOADING OPERATORS                              */
 /******************************************************************************/
 
 /*                                Assignement                                 */
-		ClassName& operator=(ClassName const& other);
-
-/******************************************************************************/
-/*                   	     GETTERS & SETTERS                                */
-/******************************************************************************/
-
+		IMateriaSource& operator=(IMateriaSource const& other);
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
+
+		virtual void learnMateria(AMateria* m) = 0;
+		virtual AMateria* createMateria(std::string const& type) = 0;
 
 	protected:
 /******************************************************************************/
 /*                   	          PROTECTED DATA                              */
 /******************************************************************************/
 
-
-	private:
-/******************************************************************************/
-/*                   	          PRIVATE DATA                                */
-/******************************************************************************/
-
+		AMateria	*_learned_materias[MAX_CAPACITY];
+		int			_number_learned_materias;
 };
-
-/******************************************************************************/
-/*                          	NON-CLASS FUNCTIONS		                      */
-/******************************************************************************/
 
 #endif
