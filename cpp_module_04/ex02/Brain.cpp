@@ -1,53 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/25 09:38:32 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/24 23:09:14 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
-
-# define NUMBER_IDEAS 100
-
-# include <iostream>
-# include <string>
-# include <cmath>
-
-class Brain {
-
-	public:
-/******************************************************************************/
-/*                   	          PUBLIC DATA                                 */
-/******************************************************************************/
-
-		std::string	_ideas[NUMBER_IDEAS];
+#include "Brain.hpp"
 
 /******************************************************************************/
 /*                   	 CONSTRUCTORS & DESTRUCTORS                           */
 /******************************************************************************/
 
 /*                                Constructors                                */
-		// Default
-		Brain(void);
-		// Copy
-		Brain(Brain const& other);
+
+Brain::Brain(void) {
+	std::cout << "Default Brain constructor called" << std::endl;
+}
+
+Brain::Brain(Brain const& other) {
+	std::cout << "Copy Brain constructor called" << std::endl;
+
+	*this = other;
+}
 
 /*                                Destructors                                 */
-		// Default
-		~Brain(void);
+
+Brain::~Brain(void) {
+	std::cout << "Brain destructor called" << std::endl;
+}
 
 /******************************************************************************/
-/*                   	   OVERLOADING OPERATORS                              */
+/*                OVERLOADING OPERATORS (CLASS & NON-CLASS)                   */
 /******************************************************************************/
 
-/*                                Assignement                                 */
-		Brain& operator=(Brain const& other);
-};
+/*                                Assignement                                  */
 
-#endif
+Brain& Brain::operator=(Brain const& other) {
+	std::cout << "Brain assignation & operator called" << std::endl;
+
+	for (int i = NUMBER_IDEAS; i < NUMBER_IDEAS; i++) {
+		this->_ideas[i] = other._ideas[i];
+	}
+
+	return *this;
+}
