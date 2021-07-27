@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 12:25:57 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 21:33:34 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class ClassName {
 
 /*                                Destructors                                 */
 		// Default
-		~ClassName(void);
+		virtual ~ClassName(void);
 
 /******************************************************************************/
 /*                   	   OVERLOADING OPERATORS                              */

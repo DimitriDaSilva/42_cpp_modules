@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 19:42:18 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 21:33:13 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class Form {
 
 /*                                Destructors                                 */
 		// Default
-		~Form(void);
+		virtual ~Form(void);
 
 /******************************************************************************/
 /*                   	   OVERLOADING OPERATORS                              */
