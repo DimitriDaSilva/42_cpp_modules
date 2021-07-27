@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 16:51:14 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/20 14:46:00 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 11:05:06 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void Contact::createContact(int i) {
 	index = i;
 	std::cout << "First name: ";
-	std::cin >> first_name;
+	std::getline(std::cin >> std::ws, first_name);
 	std::cout << "Last name: ";
-	std::cin >> last_name;
+	std::getline(std::cin >> std::ws, last_name);
 	std::cout << "Nickname: ";
-	std::cin >> nickname;
+	std::getline(std::cin >> std::ws, nickname);
 	std::cout << "Phone number: ";
-	std::cin >> phone_number;
+	std::getline(std::cin >> std::ws, phone_number);
 	std::cout << "Darkest secret: ";
-	std::cin >> darkest_secret;
+	std::getline(std::cin >> std::ws, darkest_secret);
 }
 
 void Contact::printContactRow(void) {
@@ -31,7 +31,7 @@ void Contact::printContactRow(void) {
 	printTableCell(first_name);
 	printTableCell(last_name);
 	printTableCell(nickname);
-	std::cout << "|" << std::endl;
+	std::cout << COLUMN_DELIMITER << std::endl;
 }
 
 void Contact::printContactInfo(void) {

@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 09:27:50 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/20 14:46:57 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 09:33:47 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main() {
 		else if (command.compare("SEARCH") == 0) {
 			phone_book.searchContact();
 		}
-		else if (command.compare("QUIT") == 0) {
+		else if (command.compare("EXIT") == 0) {
 			break ;
 		}
 		else {

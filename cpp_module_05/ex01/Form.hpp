@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassName.hpp                                      :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 12:25:57 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 12:32:24 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASSNAME_HPP
-# define CLASSNAME_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
+
+# define MAX_GRADE 1
+# define MIN_GRADE 150
 
 # include <iostream>
 # include <string>
 
-class ClassName {
+class Form {
 
 	public:
 /******************************************************************************/
@@ -30,20 +33,22 @@ class ClassName {
 
 /*                                Constructors                                */
 		// Default
-		ClassName(void);
+		Form(void);
+		// Type specific
+		Form(std::string const& name, int grade_to_sign, int grade_to_execute);
 		// Copy
-		ClassName(ClassName const& other);
+		Form(Form const& other);
 
 /*                                Destructors                                 */
 		// Default
-		~ClassName(void);
+		~Form(void);
 
 /******************************************************************************/
 /*                   	   OVERLOADING OPERATORS                              */
 /******************************************************************************/
 
 /*                                Assignement                                 */
-		ClassName& operator=(ClassName const& other);
+		Form& operator=(Form const& other);
 
 /******************************************************************************/
 /*                   	    GETTERS & SETTERS                                 */
@@ -58,7 +63,12 @@ class ClassName {
 /*                               EXCEPTIONS 								  */
 /******************************************************************************/
 
-		class NameException : public std::exception {
+		class GradeTooHighException : public std::exception {
+			public:
+				const char* what(void) const throw ();
+		};
+
+		class GradeTooLowException : public std::exception {
 			public:
 				const char* what(void) const throw ();
 		};
@@ -71,13 +81,25 @@ class ClassName {
 
 	private:
 /******************************************************************************/
+/*                   	       PRIVATE FUNCTIONS                              */
+/******************************************************************************/
+
+		void checkGrade(int grade);
+
+/******************************************************************************/
 /*                   	        PRIVATE DATA                                  */
 /******************************************************************************/
 
+		std::string	const	_name;
+		int const			_grade_to_sign;
+		int const			_grade_to_execute;
+		bool				_is_signed;
 };
 
 /******************************************************************************/
 /*                          NON-CLASS FUNCTIONS		                          */
 /******************************************************************************/
+
+std::ostream& operator<<(std::ostream& output, const Form& obj);
 
 #endif
