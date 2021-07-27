@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 12:20:20 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 16:59:41 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 # define MAX_GRADE 1
 # define MIN_GRADE 150
 
+# include "Form.hpp"
 # include <iostream>
 # include <string>
 # include <exception>
+
+class Form;
 
 class Bureaucrat {
 
@@ -59,6 +62,7 @@ class Bureaucrat {
 
 		void incrementGrade(void);
 		void decrementGrade(void);
+		void signForm(Form& form);
 
 /******************************************************************************/
 /*                               EXCEPTIONS 								  */
@@ -94,6 +98,5 @@ class Bureaucrat {
 /******************************************************************************/
 
 std::ostream& operator<<(std::ostream& output, const Bureaucrat& obj);
-
 
 #endif

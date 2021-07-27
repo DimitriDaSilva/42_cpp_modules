@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 12:33:04 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 16:56:44 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /*                                Constructors                                */
 
 Form::Form(void)
-	: _name("Greg"), _grade_to_sign(50), _grade_to_execute(10) {
+	: _name("IM"), _grade_to_sign(50), _grade_to_execute(10) {
 	_is_signed = false;
 }
 
@@ -27,10 +27,18 @@ Form::Form(std::string const& name, int grade_to_sign, int grade_to_execute)
 	: _name(name),
 	_grade_to_sign(grade_to_sign),
 	_grade_to_execute(grade_to_execute) {
+	
+	_is_signed = false;
 
+	checkGrade(_grade_to_sign);
+	checkGrade(_grade_to_execute);
 }
 
-Form::Form(Form const& other) {
+Form::Form(Form const& other)
+	: _name(other._name),
+	_grade_to_sign(other._grade_to_sign),
+	_grade_to_execute(other._grade_to_execute) {
+
 	*this = other;
 }
 
@@ -53,7 +61,11 @@ Form& Form::operator=(Form const& other) {
 /*                                Insertion                                   */
 
 std::ostream& operator<<(std::ostream& output, const Form& obj) {
-	output << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+	output << "The form " << obj.getName()
+		<< (obj.isSigned() ? " is" : " isn't")
+		<< " signed. It requires a "
+		<< obj.getGradeToSign() << " grade to be signed and a "
+		<< obj.getGradeToExecute() << " grade to be executed.";
 
 	return output;
 }
@@ -62,14 +74,40 @@ std::ostream& operator<<(std::ostream& output, const Form& obj) {
 /*                   	     GETTERS & SETTERS                                */
 /******************************************************************************/
 
+std::string const& Form::getName(void) const {
+	return _name;
+}
+
+int Form::getGradeToSign(void) const {
+	return _grade_to_sign;
+}
+
+int Form::getGradeToExecute(void) const {
+	return _grade_to_execute;
+}
+
+bool Form::isSigned(void) const {
+	return _is_signed;
+}
 
 /******************************************************************************/
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
 
+/*                                Public                                      */
+
+void Form::beSigned(Bureaucrat &desk_jockey) {
+	if (desk_jockey.getGrade() > _grade_to_sign) {
+		throw GradeTooLowException();
+	} else {
+		_is_signed = true;
+	}
+}
+
+/*                                Private                                     */
+
 void Form::checkGrade(int grade) {
 	if (grade < MAX_GRADE) {
-		GradeTooHighException e;
 		throw GradeTooHighException();
 	} else if (grade > MIN_GRADE) {
 		throw GradeTooLowException();

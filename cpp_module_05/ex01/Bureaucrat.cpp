@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 12:20:09 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 16:33:31 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int Bureaucrat::getGrade(void) const {
 /*                   	    OTHER CLASS FUNCTIONS                             */
 /******************************************************************************/
 
+/*                                Public                                      */
+
 void Bureaucrat::incrementGrade(void) {
 	_grade--;
 	checkGrade();
@@ -81,10 +83,20 @@ void Bureaucrat::decrementGrade(void) {
 	_grade++;
 	checkGrade();
 }
+void Bureaucrat::signForm(Form& form) {
+	try {
+		form.beSigned(*this);
+		std::cout << _name << " signed the form " << form.getName() << std::endl;
+	} catch (std::exception& e) {
+		std::cout << _name << " cannot sign the form " << form.getName() 
+			<< "." << e.what() << std::endl;
+	}
+}
+
+/*                                Private                                     */
 
 void Bureaucrat::checkGrade(void) {
 	if (_grade < MAX_GRADE) {
-		GradeTooHighException e;
 		throw GradeTooHighException();
 	} else if (_grade > MIN_GRADE) {
 		throw GradeTooLowException();

@@ -6,18 +6,18 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 12:32:24 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 16:59:33 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# define MAX_GRADE 1
-# define MIN_GRADE 150
-
+# include "Bureaucrat.hpp"
 # include <iostream>
 # include <string>
+
+class Bureaucrat;
 
 class Form {
 
@@ -54,10 +54,16 @@ class Form {
 /*                   	    GETTERS & SETTERS                                 */
 /******************************************************************************/
 
+		std::string const& getName(void) const;
+		int getGradeToSign(void) const;
+		int getGradeToExecute(void) const;
+		bool isSigned(void) const;
 
 /******************************************************************************/
 /*                   	   OTHER CLASS FUNCTIONS                              */
 /******************************************************************************/
+
+		void beSigned(Bureaucrat& desk_jockey);
 
 /******************************************************************************/
 /*                               EXCEPTIONS 								  */
@@ -72,12 +78,6 @@ class Form {
 			public:
 				const char* what(void) const throw ();
 		};
-
-	protected:
-/******************************************************************************/
-/*                   	       PROTECTED DATA                                 */
-/******************************************************************************/
-
 
 	private:
 /******************************************************************************/

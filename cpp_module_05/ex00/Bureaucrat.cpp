@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 12:20:09 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 16:15:25 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void Bureaucrat::decrementGrade(void) {
 
 void Bureaucrat::checkGrade(void) {
 	if (_grade < MAX_GRADE) {
-		GradeTooHighException e;
 		throw GradeTooHighException();
 	} else if (_grade > MIN_GRADE) {
 		throw GradeTooLowException();
