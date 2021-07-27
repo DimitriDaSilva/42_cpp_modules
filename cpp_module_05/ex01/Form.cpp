@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 16:56:44 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/27 18:02:20 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ bool Form::isSigned(void) const {
 
 /*                                Public                                      */
 
-void Form::beSigned(Bureaucrat &desk_jockey) {
+void Form::beSigned(Bureaucrat& desk_jockey) {
 	if (desk_jockey.getGrade() > _grade_to_sign) {
 		throw GradeTooLowException();
 	} else {
