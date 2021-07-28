@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 20:35:46 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/28 11:35:16 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@
 # include <iostream>
 # include <fstream>
 # include <time.h>
+# include <stdlib.h>
+# include <random>
 # include <string>
 
-class RobotomyRequestForm : public Form {
+	class RobotomyRequestForm : public Form {
 
 	public:
 /******************************************************************************/
