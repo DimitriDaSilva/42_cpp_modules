@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 20:37:12 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/28 11:46:27 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,14 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const& o
 /******************************************************************************/
 
 void RobotomyRequestForm::executeSpecificForm(void) const {
-	std::srand(time(NULL));
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	//uniform distribution between 0 and 1
+	std::uniform_real_distribution<> dis(0, 1);
+	bool is_robotomy_successful = dis(gen)  >= 0.5f ? true : false;
 
 	std::cout << "* DRILLING NOISE *" << std::endl;
-	bool is_robotomy_successful = (std::rand() / double(RAND_MAX))  >= 0.5f ? true : false;
+
 	if (is_robotomy_successful) {
 		std::cout << "The operation was a success! Poor " << _target << std::endl;
 	} else {
