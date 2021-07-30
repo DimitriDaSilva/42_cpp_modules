@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.hpp                                          :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/29 19:28:16 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/30 12:07:09 by dda-silv         ###   ########.fr       */
+/*   Created: 2021/07/30 12:10:35 by dda-silv          #+#    #+#             */
+/*   Updated: 2021/07/30 12:11:01 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_HPP
-# define UTILS_HPP
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
-# include <iostream>
-# include <string>
-# include <sstream>
-# include <climits>
-
-bool isChar(std::string const& str);
-bool isInt(std::string const& str);
-bool isFloat(std::string const& str);
-bool isDouble(std::string const& str);
+#include "ABase.hpp"
+#include "Char.hpp"
+#include "Int.hpp"
+#include "Float.hpp"
+#include "Double.hpp"
+#include "utils.hpp"
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <exception>
 
 #endif

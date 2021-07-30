@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/30 09:28:25 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/30 17:13:38 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Float::Float(void) {}
 
 Float::Float(std::string const& str_to_convert) {
 	_str_to_convert = str_to_convert;
+	std::istringstream(str_to_convert) >> _converted_value;
 }
 
 Float::Float(Float const& other) {
@@ -50,7 +51,13 @@ Float& Float::operator=(Float const& other) {
 /******************************************************************************/
 
 char Float::toChar(void) const {
-	return _converted_value;
+	char ret = (char)_converted_value;
+
+	if (!std::isprint(ret)) {
+		throw NonDisplayableException();
+	} else {
+		return ret;
+	}
 }
 
 int Float::toInt(void) const {
@@ -58,9 +65,21 @@ int Float::toInt(void) const {
 }
 
 float Float::toFloat(void) const {
-	return (float)_converted_value;
+	return _converted_value;
 }
 
 double Float::toDouble(void) const {
 	return (double)_converted_value;
+}
+
+/******************************************************************************/
+/*                               EXCEPTIONS 								  */
+/******************************************************************************/
+
+const char* Float::NonDisplayableException::what(void) const throw () {
+	return "Non displayable";
+}
+
+const char* Float::ImpossibleException::what(void) const throw () {
+	return "impossible";
 }

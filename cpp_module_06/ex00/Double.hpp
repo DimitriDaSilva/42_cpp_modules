@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/30 10:23:47 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/30 17:20:39 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,20 @@ class Double : public ABase {
 		int toInt(void) const;
 		float toFloat(void) const;
 		double toDouble(void) const;
+
+/******************************************************************************/
+/*                               EXCEPTIONS 								  */
+/******************************************************************************/
+
+		class NonDisplayableException : public std::exception {
+			public:
+				const char* what(void) const throw ();
+		};
+
+		class ImpossibleException : public std::exception {
+			public:
+				const char* what(void) const throw ();
+		};
 
 	private:
 /******************************************************************************/

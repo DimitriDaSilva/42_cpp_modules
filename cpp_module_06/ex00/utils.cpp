@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 19:28:17 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/30 10:20:17 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/30 12:07:00 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool isChar(std::string const& str) {
 }
 
 bool isInt(std::string const& str) {
-	int	converted;
+	long long	converted;
 
 	if (str.empty()) {
 		return false;
@@ -30,7 +30,11 @@ bool isInt(std::string const& str) {
 
 	try {
 		std::istringstream(str) >> converted;
-		return true;
+		if (converted < INT_MIN || INT_MAX < converted) {
+			return false;
+		} else {
+			return true;
+		}
 	} catch (std::exception& e) {
 		return false;
 	}

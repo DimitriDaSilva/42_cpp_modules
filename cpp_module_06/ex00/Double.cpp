@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/30 09:26:57 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/30 17:13:29 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ Double::Double(void) {}
 
 Double::Double(std::string const& str_to_convert) {
 	_str_to_convert = str_to_convert;
-
-	// TODO: convert string to double
+	std::istringstream(str_to_convert) >> _converted_value;
 }
 
 Double::Double(Double const& other) {
@@ -52,7 +51,13 @@ Double& Double::operator=(Double const& other) {
 /******************************************************************************/
 
 char Double::toChar(void) const {
-	return _converted_value;
+	char ret = (char)_converted_value;
+
+	if (!std::isprint(ret)) {
+		throw NonDisplayableException();
+	} else {
+		return ret;
+	}
 }
 
 int Double::toInt(void) const {
@@ -64,5 +69,17 @@ float Double::toFloat(void) const {
 }
 
 double Double::toDouble(void) const {
-	return (double)_converted_value;
+	return _converted_value;
+}
+
+/******************************************************************************/
+/*                               EXCEPTIONS 								  */
+/******************************************************************************/
+
+const char* Double::NonDisplayableException::what(void) const throw () {
+	return "Non displayable";
+}
+
+const char* Double::ImpossibleException::what(void) const throw () {
+	return "impossible";
 }
