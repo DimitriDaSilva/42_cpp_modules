@@ -6,7 +6,7 @@
 #    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/29 19:48:15 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/07/30 09:31:36 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,10 @@ NAME				:=		scalar
 SRCS				:=		./main.cpp		\
 							./utils.cpp		\
 							./ABase.cpp		\
-							./Char.cpp
+							./Char.cpp		\
+							./Int.cpp		\
+							./Float.cpp		\
+							./Double.cpp
 OBJS				:=		${SRCS:.cpp=.o}
 
 # Compiler
