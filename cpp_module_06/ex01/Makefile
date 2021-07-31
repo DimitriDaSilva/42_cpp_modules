@@ -6,28 +6,22 @@
 #    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/31 16:39:17 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/07/31 15:16:25 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Name of the program built
-NAME				:=		bureaucrat
+NAME				:=		serialize
 
 # List of sources
-SRCS				:=		./main.cpp							\
-								./Bureaucrat.cpp				\
-								./Form.cpp						\
-								./ShrubberyCreationForm.cpp		\
-								./RobotomyRequestForm.cpp		\
-								./PresidentialPardonForm.cpp	\
-								./Intern.cpp
+SRCS				:=		./main.cpp
 OBJS				:=		${SRCS:.cpp=.o}
 
 # Compiler
 CC					:=		clang++
 
 # Flags - compilation
-FLAG_WARNING		:=		-Wall -Wextra -Werror -Wshadow
+FLAG_WARNING		:=		-Wall -Wextra -Werror #-std=c++98
 FLAG_INC			:= 		-I.
 FLAG_DEBUG			:= 		-g
 FLAGS_COMP			:= 		$(FLAG_WARNING) $(FLAG_INC) $(FLAG_DEBUG)
@@ -59,7 +53,7 @@ $(NAME):					$(OBJS)
 							@ $(CC) $(FLAGS_COMP) -c $< -o $@
 
 clean:
-							@ $(RM) $(OBJS) lily_shrubbery
+							@ $(RM) $(OBJS)
 							@ printf "$(_INFO) Deleted files and directory\n"
 
 fclean:						clean

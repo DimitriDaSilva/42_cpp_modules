@@ -14,6 +14,8 @@
 */*/materia
 */*/bureaucrat
 */*/convert
+*/*/serialize
+*/*/real_type
 *.o
 *.log
 *.swp
