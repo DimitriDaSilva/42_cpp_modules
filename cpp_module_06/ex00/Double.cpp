@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/30 17:13:29 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/31 12:14:26 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,26 +50,40 @@ Double& Double::operator=(Double const& other) {
 /*                   	   OTHER CLASS FUNCTIONS                              */
 /******************************************************************************/
 
-char Double::toChar(void) const {
+std::string Double::toChar(void) const {
 	char ret = (char)_converted_value;
 
-	if (!std::isprint(ret)) {
+	if (_str_to_convert == "-inf" || _str_to_convert == "+inf" || _str_to_convert == "nan") {
+		throw ImpossibleException();
+	} else if (!std::isprint(ret)) {
 		throw NonDisplayableException();
 	} else {
-		return ret;
+		return "'" + std::string(1, ret) + "'";
 	}
 }
 
 int Double::toInt(void) const {
-	return (int)_converted_value;
+	if (_str_to_convert == "-inf" || _str_to_convert == "+inf" || _str_to_convert == "nan") {
+		throw ImpossibleException();
+	} else {
+		return (int)_converted_value;
+	}
 }
 
 float Double::toFloat(void) const {
-	return (float)_converted_value;
+	if (_str_to_convert == "-inf" || _str_to_convert == "+inf" || _str_to_convert == "nan") {
+		throw NanException(_str_to_convert + "f");
+	} else {
+		return (float)_converted_value;
+	}
 }
 
 double Double::toDouble(void) const {
-	return _converted_value;
+	if (_str_to_convert == "-inf" || _str_to_convert == "+inf" || _str_to_convert == "nan") {
+		throw NanException(_str_to_convert);
+	} else {
+		return _converted_value;
+	}
 }
 
 /******************************************************************************/
@@ -83,3 +97,11 @@ const char* Double::NonDisplayableException::what(void) const throw () {
 const char* Double::ImpossibleException::what(void) const throw () {
 	return "impossible";
 }
+
+Double::NanException::NanException(std::string const& msg) : _msg(msg) {}
+
+const char* Double::NanException::what(void) const throw () {
+	return _msg.c_str();
+}
+
+Double::NanException::~NanException(void) throw() {return;}

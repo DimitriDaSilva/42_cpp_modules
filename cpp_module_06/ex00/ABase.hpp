@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/29 19:50:13 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/31 11:58:06 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class ABase {
 /*                   	   OTHER CLASS FUNCTIONS                              */
 /******************************************************************************/
 
-		virtual char toChar(void) const = 0;
+		virtual std::string toChar(void) const = 0;
 		virtual int toInt(void) const = 0;
 		virtual float toFloat(void) const = 0;
 		virtual double toDouble(void) const = 0;

@@ -1,16 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.cpp                                          :+:      :+:    :+:   */
+/*   detectType.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 19:28:17 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/30 12:07:00 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/31 12:36:58 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.hpp"
+#include "detectType.hpp"
+
+ABase* getType(std::string const& str_to_convert) {
+	ABase* type;
+
+	if (isFloat(str_to_convert)) {
+		std::cout << "Is Float!" << std::endl;
+		type = new Float(str_to_convert);
+	} else if (isDouble(str_to_convert)) {
+		std::cout << "Is Double!" << std::endl;
+		type = new Double(str_to_convert);
+	} else if (isChar(str_to_convert)) {
+		std::cout << "Is Char!" << std::endl;
+		type = new Char(str_to_convert);
+	} else if (isInt(str_to_convert)) {
+		std::cout << "Is Int!" << std::endl;
+		type = new Int(str_to_convert);
+	} else {
+		type = NULL;
+	}
+	
+	return type;
+}
 
 bool isChar(std::string const& str) {
 	if (str.length() == 1 && std::isprint(str[0])
@@ -24,7 +46,7 @@ bool isChar(std::string const& str) {
 bool isInt(std::string const& str) {
 	long long	converted;
 
-	if (str.empty()) {
+	if (str.empty() || strisalpha(str)) {
 		return false;
 	}
 
@@ -43,19 +65,13 @@ bool isInt(std::string const& str) {
 bool isFloat(std::string const& str) {
 	int	i = 0;
 
-	if (str.empty()) {
+	if (str.empty() || str.length() <= 3 || str.length() >= 10) {
 		return false;
 	}
 
 	if (str == "-inff" || str == "+inff" || str == "nanf") {
 		return true;
 	}
-
-	// It can't be smaller than 4 characters long (5 if negative)
-	//if ((str[0] != '-' && str.length() < (size_t)4)
-			//|| str[0] == '-' && str.length() < (size_t)5) {
-		//return false;
-	//}
 
 	// Increment the potential minus sign
 	if (str[i] && str[i] == '-') {
@@ -96,19 +112,13 @@ bool isFloat(std::string const& str) {
 bool isDouble(std::string const& str) {
 	int	i = 0;
 
-	if (str.empty()) {
+	if (str.empty() || str.length() <= 2 || str.length() >= 10) {
 		return false;
 	}
 
 	if (str == "-inf" || str == "+inf" || str == "nan") {
 		return true;
 	}
-
-	// It can't be smaller than 3 characters long (4 if negative)
-	//if ((str[0] != '-' && str.length() < (size_t)4)
-			//|| str[0] == '-' && str.length() < (size_t)5) {
-		//return false;
-	//}
 
 	// Increment the potential minus sign
 	if (str[i] && str[i] == '-') {
@@ -137,4 +147,21 @@ bool isDouble(std::string const& str) {
 	} else {
 		return false;
 	}
+}
+
+bool strisalpha(std::string const& str) {
+	int i = 0;
+
+	if (str[i] == '-') {
+		i++;
+	}
+
+	while (str[i]) {
+		if (std::isalpha(str[i])) {
+			return true;
+		}
+		i++;
+	}
+
+	return false;
 }

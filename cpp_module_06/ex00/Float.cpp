@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/30 17:13:38 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/31 12:13:44 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ Float& Float::operator=(Float const& other) {
 /*                   	   OTHER CLASS FUNCTIONS                              */
 /******************************************************************************/
 
-char Float::toChar(void) const {
+std::string Float::toChar(void) const {
 	char ret = (char)_converted_value;
 
 	if (!std::isprint(ret)) {
 		throw NonDisplayableException();
 	} else {
-		return ret;
+		return "'" + std::string(1, ret) + "'";
 	}
 }
 
@@ -65,11 +65,19 @@ int Float::toInt(void) const {
 }
 
 float Float::toFloat(void) const {
-	return _converted_value;
+	if (_str_to_convert == "-inff" || _str_to_convert == "+inff" || _str_to_convert == "nanf") {
+		throw NanException(_str_to_convert);
+	} else {
+		return _converted_value;
+	}
 }
 
 double Float::toDouble(void) const {
-	return (double)_converted_value;
+	if (_str_to_convert == "-inff" || _str_to_convert == "+inff" || _str_to_convert == "nanf") {
+		throw NanException(_str_to_convert.substr(0, _str_to_convert.length() - 1));
+	} else {
+		return (double)_converted_value;
+	}
 }
 
 /******************************************************************************/
@@ -83,3 +91,11 @@ const char* Float::NonDisplayableException::what(void) const throw () {
 const char* Float::ImpossibleException::what(void) const throw () {
 	return "impossible";
 }
+
+Float::NanException::NanException(std::string const& msg) : _msg(msg) {}
+
+const char* Float::NanException::what(void) const throw () {
+	return _msg.c_str();
+}
+
+Float::NanException::~NanException(void) throw() {return;}

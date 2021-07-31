@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/30 17:12:56 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/31 10:41:38 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ Int& Int::operator=(Int const& other) {
 /*                   	   OTHER CLASS FUNCTIONS                              */
 /******************************************************************************/
 
-char Int::toChar(void) const {
+std::string Int::toChar(void) const {
 	char ret = (char)_converted_value;
 
 	if (!std::isprint(ret)) {
 		throw NonDisplayableException();
 	} else {
-		return ret;
+		return "'" + std::string(1, ret) + "'";
 	}
 }
 

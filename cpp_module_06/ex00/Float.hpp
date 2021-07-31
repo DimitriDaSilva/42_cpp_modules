@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/30 17:08:41 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/07/31 12:11:07 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class Float : public ABase {
 /*                   	   OTHER CLASS FUNCTIONS                              */
 /******************************************************************************/
 
-		char toChar(void) const;
+		std::string toChar(void) const;
 		int toInt(void) const;
 		float toFloat(void) const;
 		double toDouble(void) const;
@@ -70,6 +70,15 @@ class Float : public ABase {
 		class ImpossibleException : public std::exception {
 			public:
 				const char* what(void) const throw ();
+		};
+
+		class NanException : public std::exception {
+			public:
+				NanException(std::string const& msg);
+				virtual const char* what(void) const throw ();
+				virtual ~NanException(void) throw();
+			private:
+				std::string _msg;
 		};
 
 	private:

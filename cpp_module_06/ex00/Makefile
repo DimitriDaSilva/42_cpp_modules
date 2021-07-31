@@ -6,21 +6,22 @@
 #    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/30 09:31:36 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/07/31 12:27:29 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Name of the program built
-NAME				:=		scalar
+NAME				:=		convert
 
 # List of sources
-SRCS				:=		./main.cpp		\
-							./utils.cpp		\
-							./ABase.cpp		\
-							./Char.cpp		\
-							./Int.cpp		\
-							./Float.cpp		\
-							./Double.cpp
+SRCS				:=		./main.cpp				\
+								./detectType.cpp	\
+								./printTypes.cpp	\
+								./ABase.cpp			\
+								./Char.cpp			\
+								./Int.cpp			\
+								./Float.cpp			\
+								./Double.cpp
 OBJS				:=		${SRCS:.cpp=.o}
 
 # Compiler
@@ -72,5 +73,44 @@ re:							fclean all
 debug:						FLAGS_COMP += $(FLAG_MEM_LEAK)
 debug:						re
 
+test:						debug
+							@ printf "$(_INFO) Start testing $(NAME)\n\n"
+							@ printf "Testing wrong input\n\n"
+							./$(NAME)
+							./$(NAME) "this is a string"
+							./$(NAME) ""
+							./$(NAME) 2147483648
+							./$(NAME) -2147483649
+							./$(NAME) 1.17549e-038
+							./$(NAME) 3.40282e+038
+							./$(NAME) 2.22507e-308
+							./$(NAME) 1.79769e+308
+
+							@ printf "\nTesting valid char input\n\n"
+							./$(NAME) a
+							./$(NAME) .
+							./$(NAME) -
+							./$(NAME) ')'
+
+							@ printf "\nTesting valid int input\n\n"
+							./$(NAME) 0
+							./$(NAME) 42
+							./$(NAME) -42
+							./$(NAME) 2147483647
+							./$(NAME) -2147483648
+
+							@ printf "\nTesting valid float input\n\n"
+							./$(NAME) nanf
+							./$(NAME) -inff
+							./$(NAME) +inff
+							./$(NAME) 42.0f
+							./$(NAME) 42.4219f
+
+							@ printf "\nTesting valid double input\n\n"
+							./$(NAME) nan
+							./$(NAME) -inf
+							./$(NAME) +inf
+							./$(NAME) 42.0
+							./$(NAME) 42.4219
 
 .PHONY:						all clean fclean re
