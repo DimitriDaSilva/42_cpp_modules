@@ -16,6 +16,7 @@
 */*/convert
 */*/serialize
 */*/real_type
+*/*/template
 *.o
 *.log
 *.swp
