@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+         #
+#    By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/11 09:09:39 by dda-silv          #+#    #+#              #
-#    Updated: 2021/07/31 16:52:19 by dda-silv         ###   ########.fr        #
+#    Updated: 2021/08/02 14:59:51 by dda-silv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJS				:=		${SRCS:.cpp=.o}
 CC					:=		clang++
 
 # Flags - compilation
-FLAG_WARNING		:=		-Wall -Wextra -Werror #-std=c++98
+FLAG_WARNING		:=		-Wall -Wextra -Werror -std=c++98
 FLAG_INC			:= 		-I.
 FLAG_DEBUG			:= 		-g
 FLAGS_COMP			:= 		$(FLAG_WARNING) $(FLAG_INC) $(FLAG_DEBUG)
