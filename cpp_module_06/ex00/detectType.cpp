@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 19:28:17 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/31 12:36:58 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/02 10:03:55 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,12 @@ ABase* getType(std::string const& str_to_convert) {
 	ABase* type;
 
 	if (isFloat(str_to_convert)) {
-		std::cout << "Is Float!" << std::endl;
 		type = new Float(str_to_convert);
 	} else if (isDouble(str_to_convert)) {
-		std::cout << "Is Double!" << std::endl;
 		type = new Double(str_to_convert);
 	} else if (isChar(str_to_convert)) {
-		std::cout << "Is Char!" << std::endl;
 		type = new Char(str_to_convert);
 	} else if (isInt(str_to_convert)) {
-		std::cout << "Is Int!" << std::endl;
 		type = new Int(str_to_convert);
 	} else {
 		type = NULL;

@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/31 12:13:44 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/02 10:02:17 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ Float& Float::operator=(Float const& other) {
 std::string Float::toChar(void) const {
 	char ret = (char)_converted_value;
 
-	if (!std::isprint(ret)) {
+	if (_str_to_convert == "-inff" || _str_to_convert == "+inff" || _str_to_convert == "nanf") {
+		throw ImpossibleException();
+	} else if (!std::isprint(ret)) {
 		throw NonDisplayableException();
 	} else {
 		return "'" + std::string(1, ret) + "'";
@@ -61,7 +63,11 @@ std::string Float::toChar(void) const {
 }
 
 int Float::toInt(void) const {
-	return (int)_converted_value;
+	if (_str_to_convert == "-inff" || _str_to_convert == "+inff" || _str_to_convert == "nanf") {
+		throw ImpossibleException();
+	} else {
+		return (int)_converted_value;
+	}
 }
 
 float Float::toFloat(void) const {
