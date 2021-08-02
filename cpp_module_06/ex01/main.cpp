@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 14:54:28 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/31 16:24:37 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/02 14:48:30 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ Data* deserialize(uintptr_t raw) {
 	Data* ret = new Data();
 
 	ret->day = *(reinterpret_cast<int *>(raw));
-	ret->month = std::string(reinterpret_cast<char *>(raw + 24), 4);
-	ret->year = *(reinterpret_cast<int *>(raw + 40));
+	ret->month = std::string(reinterpret_cast<char *>(raw + 9), 4);
+	ret->year = *(reinterpret_cast<int *>(raw + 32));
 
 	return ret;
 }
