@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Int.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/31 10:39:31 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/02 10:20:50 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <sstream>
 # include <string>
 # include <exception>
+# include <float.h>
 
 class Int : public ABase {
 

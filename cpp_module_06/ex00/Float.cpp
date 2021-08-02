@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Float.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/08/02 10:02:17 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/02 10:16:10 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Float::Float(void) {}
 
 Float::Float(std::string const& str_to_convert) {
 	_str_to_convert = str_to_convert;
-	std::istringstream(str_to_convert) >> _converted_value;
+	std::istringstream(str_to_convert.substr(0, _str_to_convert.length() - 1)) >> _converted_value;
 }
 
 Float::Float(Float const& other) {

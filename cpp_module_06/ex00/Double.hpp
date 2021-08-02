@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Double.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
+/*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/31 12:09:08 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/02 10:20:20 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <sstream>
 # include <string>
+# include <float.h>
 
 class Double : public ABase {
 
