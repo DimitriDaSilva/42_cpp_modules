@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 09:46:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 21:24:51 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/02 12:37:26 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,4 @@ int main(void) {
 	delete form;
 
 	form = someRandomIntern.makeForm("Earth destruction request form", "Bender");
-	delete form;
 }
