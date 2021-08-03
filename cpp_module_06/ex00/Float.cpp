@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/08/02 10:16:10 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/03 15:57:39 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ Float& Float::operator=(Float const& other) {
 /******************************************************************************/
 
 std::string Float::toChar(void) const {
-	char ret = (char)_converted_value;
+	char ret = static_cast<char>(_converted_value);
 
 	if (_str_to_convert == "-inff" || _str_to_convert == "+inff" || _str_to_convert == "nanf") {
 		throw ImpossibleException();
@@ -66,7 +66,7 @@ int Float::toInt(void) const {
 	if (_str_to_convert == "-inff" || _str_to_convert == "+inff" || _str_to_convert == "nanf") {
 		throw ImpossibleException();
 	} else {
-		return (int)_converted_value;
+		return static_cast<int>(_converted_value);
 	}
 }
 
@@ -82,7 +82,7 @@ double Float::toDouble(void) const {
 	if (_str_to_convert == "-inff" || _str_to_convert == "+inff" || _str_to_convert == "nanf") {
 		throw NanException(_str_to_convert.substr(0, _str_to_convert.length() - 1));
 	} else {
-		return (double)_converted_value;
+		return static_cast<double>(_converted_value);
 	}
 }
 

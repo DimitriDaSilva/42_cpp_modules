@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/31 12:14:26 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/03 15:53:41 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ Double& Double::operator=(Double const& other) {
 /******************************************************************************/
 
 std::string Double::toChar(void) const {
-	char ret = (char)_converted_value;
+	char ret = static_cast<char>(_converted_value);
 
 	if (_str_to_convert == "-inf" || _str_to_convert == "+inf" || _str_to_convert == "nan") {
 		throw ImpossibleException();
@@ -66,7 +66,7 @@ int Double::toInt(void) const {
 	if (_str_to_convert == "-inf" || _str_to_convert == "+inf" || _str_to_convert == "nan") {
 		throw ImpossibleException();
 	} else {
-		return (int)_converted_value;
+		return static_cast<int>(_converted_value);
 	}
 }
 
@@ -74,7 +74,7 @@ float Double::toFloat(void) const {
 	if (_str_to_convert == "-inf" || _str_to_convert == "+inf" || _str_to_convert == "nan") {
 		throw NanException(_str_to_convert + "f");
 	} else {
-		return (float)_converted_value;
+		return static_cast<float>(_converted_value);
 	}
 }
 

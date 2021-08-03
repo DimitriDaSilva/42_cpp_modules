@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 16:36:10 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/31 18:52:15 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/03 16:17:26 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,35 @@ Base* generate(void) {
 }
 
 void identify(Base* p) {
-	if (dynamic_cast<A*>(p)) {
+	if (p == NULL) {
+		return;
+	}
+
+	if (dynamic_cast<A*>(p) != NULL) {
 		std::cout << "A" << std::endl;
-	} else if (dynamic_cast<B*>(p)) {
+	} else if (dynamic_cast<B*>(p) != NULL) {
 		std::cout << "B" << std::endl;
-	} else if (dynamic_cast<C*>(p)) {
+	} else if (dynamic_cast<C*>(p) != NULL) {
 		std::cout << "C" << std::endl;
 	}
 }
 
 void identify(Base& p) {
-	if (dynamic_cast<A*>(&p)) {
+	try {
+		A& a = dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
-	} else if (dynamic_cast<B*>(&p)) {
+		(void)a;
+	} catch (std::exception& e) {}
+
+	try {
+		B& b = dynamic_cast<B&>(p);
 		std::cout << "B" << std::endl;
-	} else if (dynamic_cast<C*>(&p)) {
+		(void)b;
+	} catch (std::exception& e) {}
+
+	try {
+		C& c = dynamic_cast<C&>(p);
 		std::cout << "C" << std::endl;
-	}
+		(void)c;
+	} catch (std::exception& e) {}
 }

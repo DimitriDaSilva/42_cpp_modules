@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/31 10:42:30 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/03 15:55:57 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ std::string Char::toChar(void) const {
 }
 
 int Char::toInt(void) const {
-	return (int)_converted_value;
+	return static_cast<int>(_converted_value);
 }
 
 float Char::toFloat(void) const {
-	return (float)_converted_value;
+	return static_cast<float>(_converted_value);
 }
 
 double Char::toDouble(void) const {
-	return (double)_converted_value;
+	return static_cast<double>(_converted_value);
 }

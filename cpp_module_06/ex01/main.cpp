@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 14:54:28 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/08/02 14:48:30 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/03 16:01:09 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ int main(void) {
 	uintptr_t raw;
 	Data* cpy;
 
-	std::cout << sizeof(data) << std::endl;
-	std::cout << sizeof(&data.day) << std::endl;
-	std::cout << sizeof(data.month) << std::endl;
-	std::cout << sizeof(&data.year) << std::endl;
-
 	std::cout << "Day: " << data.day << std::endl;
 	std::cout << "Month: " << data.month << std::endl;
 	std::cout << "Year: " << data.year << std::endl;
@@ -37,8 +32,6 @@ int main(void) {
 	std::cout << "Month: " << cpy->month << std::endl;
 	std::cout << "Year: " << cpy->year << std::endl;
 
-	delete cpy;
-
 	return 0;
 }
 
@@ -47,11 +40,5 @@ uintptr_t serialize(Data* ptr) {
 }
 
 Data* deserialize(uintptr_t raw) {
-	Data* ret = new Data();
-
-	ret->day = *(reinterpret_cast<int *>(raw));
-	ret->month = std::string(reinterpret_cast<char *>(raw + 9), 4);
-	ret->year = *(reinterpret_cast<int *>(raw + 32));
-
-	return ret;
+	return reinterpret_cast<Data*>(raw);
 }
