@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:06 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/08/02 15:54:45 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/03 18:48:23 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <algorithm>
 # include <iterator>
 # include <vector>
+# include <climits>
+
+typedef std::vector<int>::iterator Iter;
 
 class Span {
 
@@ -59,9 +62,10 @@ class Span {
 /*                   	   OTHER CLASS FUNCTIONS                              */
 /******************************************************************************/
 
+		void addNumber(Iter begin, Iter end);
 		void addNumber(int n);
-		int shortestSpan(void) const;
-		int longestSpan(void) const;
+		unsigned long shortestSpan(void);
+		unsigned long longestSpan(void);
 
 /******************************************************************************/
 /*                               EXCEPTIONS 								  */
