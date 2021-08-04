@@ -6,13 +6,14 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 09:41:02 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/08/04 11:43:07 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/04 14:44:36 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mutantstack.hpp"
 
 int main(void) {
+	std::stack<int> a_stack;
 	MutantStack<int> mstack;
 
 	mstack.push(5);
@@ -32,7 +33,7 @@ int main(void) {
 
 	mstack.push(0);
 
-	//MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator it = mstack.begin();
 	//MutantStack<int>::iterator ite = mstack.end();
 
 	//++it;
