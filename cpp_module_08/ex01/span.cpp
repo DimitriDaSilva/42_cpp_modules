@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:07:05 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/08/03 19:12:57 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/04 17:22:55 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ unsigned long Span::shortestSpan(void) {
 
 unsigned long Span::longestSpan(void) {
 	unsigned long longest_span = 0;
-	int max = 0;
-	int min = 0;
+	unsigned int max = 0;
+	unsigned int min = 0;
 
 	// Check if 0 or 1 numbers
 	if (_vec.size() <= 1) {
