@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 16:11:18 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/08/01 20:07:42 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/08/07 16:59:22 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 template<typename TContainer>
 static void test(TContainer const& c, int n) {
-	int index = 0;
-
 	std::cout << "Trying to find " << n << "...";
-	if ((index = easyfind(c, n)) != -1) {
-		std::cout << "Found it at index " << index << std::endl;
-	} else {
-		std::cout << "Couldn't find it" << std::endl;
-	}
 
+	try {
+		easyfind(c, n);
+		std::cout << "Found it!" << std::endl;
+	} catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
 }
 
 static void test_array(void) {
