@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:17:35 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/12 18:57:17 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/11/04 10:17:18 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Zombie {
 		~Zombie(void);
 
 		void	announce(void);
+
 	private:
 		std::string	_name;
 };
