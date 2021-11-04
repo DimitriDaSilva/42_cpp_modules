@@ -21,6 +21,7 @@
 */*/span
 */*/abomination
 *.o
+*/*/a.out
 *.log
 *.swp
 */*/lily_shrubbery

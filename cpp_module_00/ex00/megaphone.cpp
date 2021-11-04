@@ -6,11 +6,12 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 09:27:50 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/12 12:17:04 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/11/04 09:09:07 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
 
 // Convert a string to uppercase
 static std::string	ft_strtoupper(std::string str) {

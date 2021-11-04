@@ -1,4 +1,3 @@
-#include <chrono>
 #include <ctime>
 #include <iostream>
 #include "Account.hpp"
@@ -123,11 +122,9 @@ void Account::displayStatus( void ) const {
 }
 
 void Account::_displayTimestamp( void ) {
-	time_t to_time = std::chrono::system_clock::to_time_t(
-			std::chrono::system_clock::now()
-		);
-
+	time_t to_time = std::time(NULL);
 	std::string s(30, '\0');
+
     std::strftime((char *)s.c_str(),
 					s.size(),
 					"%Y%m%d_%H%M%S",

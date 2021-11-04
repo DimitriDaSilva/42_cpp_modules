@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:15:04 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/20 14:47:29 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/11/04 09:37:26 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void PhoneBook::addContact() {
 
 void PhoneBook::searchContact() {
 	std::string	input;
-	long		index = 0;
+	int			index = 0;
 	bool		is_index_valid = false;
 
 	// Do nothing if no contacts
@@ -48,12 +48,12 @@ void PhoneBook::searchContact() {
 		std::cin >> input;
 
 		// Check if input is an int
-		if (!isInteger(input)) {
+		if (!std::cin.good()) {
 			std::cout << "Invalid index." << std::endl;
 			std::cout << "Index: ";
 			continue;
 		} else {
-			index = std::stol(input);
+			index = stringToInt(input);
 		}
 
 		// Check if input is among available indexes

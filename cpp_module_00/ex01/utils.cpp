@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 19:53:34 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 10:47:48 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/11/04 09:37:43 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,24 +55,19 @@ void printTableRowDelimiter(void) {
 	std::cout << std::endl;
 }
 
-bool isInteger(const std::string& str) {
-	int		check = 0;
-	char	*ptr = nullptr;
+std::string intToString(int nb) {
+	std::ostringstream ss;
 
-	if (str.empty() || !std::isdigit(str[0])) {
-		return false;
-	}
+	ss << nb;
 
-	// strtol is C API so we need to convert str to a C string
-	std::strtol(str.c_str(), &ptr, 10);
+	return ss.str();
+}
 
-	// If ptr is not set as NULL by strtol then it means that the conversion
-	// failed
-	if (*ptr == 0) {
-		check = 1;
-	} else {
-		check = 0;
-	}
+int stringToInt(const std::string& str)
+{
+	int nb = 0;
 
-	return check;
+	std::istringstream(str) >> nb;
+
+	return nb;
 }

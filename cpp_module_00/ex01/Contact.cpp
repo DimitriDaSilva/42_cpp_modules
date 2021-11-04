@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 16:51:14 by dda-silv          #+#    #+#             */
-/*   Updated: 2021/07/27 11:05:06 by dda-silv         ###   ########.fr       */
+/*   Updated: 2021/11/04 09:21:43 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void Contact::createContact(int i) {
 }
 
 void Contact::printContactRow(void) {
-	printTableCell(std::to_string(index));
+	printTableCell(intToString(index));
 	printTableCell(first_name);
 	printTableCell(last_name);
 	printTableCell(nickname);
@@ -41,3 +41,4 @@ void Contact::printContactInfo(void) {
 		<< "Phone number: " << phone_number << std::endl
 		<< "Darkest secret: " << darkest_secret << std::endl;
 }
+
